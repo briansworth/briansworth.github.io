@@ -4,12 +4,13 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+I got started with PowerShell, and fell in love with dev.
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+I enjoy coding and building infrastructure.
+Dev is pretty cool.
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[brian@powertheshell.ninja](mailto:brian@powertheshell.ninja)
