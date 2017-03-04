@@ -9,7 +9,7 @@ name: PowerTheShell.ninja
 description: Use the power of the shell you IT ninja.
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: /images/site-logo.png 
+avatar: ./images/site-logo.png 
 
 #
 # Flags below are optional
