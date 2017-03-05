@@ -33,7 +33,7 @@ Get-WmiObject -Class Win32_ComputerSystem | GM -Name Rename | Select -ExpandProp
 
 System.Management.ManagementBaseObject Rename(System.String Name, System.String Password, System.String UserName)
 ```
-    `Rename(System.String Name, System.String Password, System.String UserName)`
+The method args: `Rename(System.String Name, System.String Password, System.String UserName)`
 
 In practice, you do not need to specify Password, or UserName.
 The following example should work for a name of your choosing:
