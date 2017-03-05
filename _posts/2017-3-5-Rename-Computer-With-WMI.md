@@ -107,6 +107,26 @@ Ensure the Password and User are in the correct spot (Password is the 2nd argume
 
 You have either specified an invalid character in the name, or you have some how exceeded the number of characters allowed for a computer name (63 character limit).  
 
+```
+$newName='Computer~~02'
+$system=GetWmiObject -Class Win32_ComputerSystem
+$system.Rename($newName)
+
+__GENUS          : 2
+__CLASS          : __PARAMETERS
+__SUPERCLASS     :
+__DYNASTY        : __PARAMETERS
+__RELPATH        :
+__PROPERTY_COUNT : 1
+__DERIVATION     : {}
+__SERVER         :
+__NAMESPACE      :
+__PATH           :
+ReturnValue      : 87
+
+```
+In this example we get the 87 return value because there are invalid characters in the new name. '~' is invalid in this case.
+
 ## 2697 - Computer account could not be found
 
 This one is interesting as it is a network error. You can fix this be rebooting and trying again.
@@ -148,8 +168,8 @@ __PATH           :
 ReturnValue      : 2697
 ```
 
-I know there are plenty other return values; however these were the first that I encountered and thought were common enough to explain.
+I know there are plenty other return values; however, these were the codes that I encountered that were common enough to eloborate on.
 
-### Thanks for reading,
+*Thanks for reading,*
 
 PS> exit
