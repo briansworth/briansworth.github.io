@@ -57,7 +57,7 @@ Be sure to restart the machine and enjoy your newly named computer!
 # Common return values
 
 ## 5
-Access denied.
+### Access denied.
 
 I found providing the credentials of an elevated user while running PowerShell as a user without permissions still did not work.
 
@@ -84,7 +84,7 @@ That being said, if you are using an account with proper permissions, you can ge
 In fact, I would recommend not specifying the credentials as you may run into the following return value if you mistype.
 
 ## 1326
-Logon Failure.
+### Logon Failure.
 
 You will likely get this if you specified a password and a username in the command:
 ```
@@ -106,12 +106,12 @@ ReturnValue      : 1326
 Ensure the Password and User are in the correct spot (Password is the 2nd argument, User is the 3rd) and that both are correctly spelled.
 
 ## 87
-Invalid parameter.
+### Invalid parameter.
 
 You have either specified an invalid character in the name, or you have some how exceeded the number of characters allowed for a computer name (63 character limit).  
 
 ## 2697
-Computer account could not be found.
+### Computer account could not be found.
 
 This one is interesting as it is a network error. You can fix this be rebooting and trying again.
 
@@ -154,6 +154,6 @@ ReturnValue      : 2697
 
 I know there are plenty other return values; however these were the first that I encountered and thought were common enough to explain.
 
-###Thanks for reading,
+### Thanks for reading,
 
 PS> exit
