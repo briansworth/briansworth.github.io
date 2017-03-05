@@ -11,7 +11,7 @@ Many other cmdlets were missing as well, which made setting up the networking mo
 Instead of looking for the cmd tool that could do the job (netdom), I decided to look around in wmi for the potential answer.
 
 I know you can get the hostname of the machine from the Win32_ComputerSystem class so let's see what methods we find.
-```
+```powershell
 Get-WmiObject -Class Win32_ComputerSystem | GM -MemberType Method
 
 Name                    MemberType Definition
