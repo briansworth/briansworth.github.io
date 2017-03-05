@@ -58,7 +58,7 @@ ReturnValue      : 0
 A return value of 0 means success!
 Be sure to restart the machine and enjoy your newly named computer!
 
-
+----
 ## Common return values
 
 ### 5 - Access denied
@@ -86,6 +86,7 @@ I had to run a new PowerShell window with elevated privileges to get this to wor
 That being said, if you are using an account with proper permissions, you can get away with just specifying the Name.
 
 In fact, I would recommend not specifying the credentials as you may run into the following return value if you mistype.
+-----
 
 ### 1326 - Logon Failure
 
@@ -107,6 +108,7 @@ ReturnValue      : 1326
 ```
 
 Ensure the Password and User are in the correct spot (Password is the 2nd argument, User is the 3rd) and that both are correctly spelled.
+-----
 
 ### 87 - Invalid parameter
 
@@ -131,6 +133,7 @@ ReturnValue      : 87
 
 ```
 In this example we get the 87 return value because there are invalid characters in the new name. '~' is invalid in this case.
+-----
 
 ### 2697 - Computer account could not be found
 
@@ -172,6 +175,7 @@ __NAMESPACE      :
 __PATH           :
 ReturnValue      : 2697
 ```
+-----
 
 I know there are plenty other return values; however, these were the codes that I encountered that were common enough to elaborate on.
 
