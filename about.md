@@ -4,12 +4,13 @@ title: About
 permalink: /about/
 ---
 
-I got started with PowerShell, and fell in love with dev.
+I got started with PowerShell, and fell in love with code.
+Why do it more than once.
 
 ### More Information
 
-I enjoy coding and building infrastructure.
-Dev is pretty cool.
+Building stuff is pretty cool.
+Automating it is even cooler.
 
 ### Contact me
 
