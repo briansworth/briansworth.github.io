@@ -28,7 +28,7 @@ The 'Definition' of this method indicates that it accepts 3 arguments:
 2. Password (string)
 3. UserName (string)
 
-```
+```powershell
 Get-WmiObject -Class Win32_ComputerSystem | GM -Name Rename | Select -ExpandProperty Definition
 
 System.Management.ManagementBaseObject Rename(System.String Name, System.String Password, System.String UserName)
@@ -37,7 +37,7 @@ The method args: `Rename(System.String Name, System.String Password, System.Stri
 
 In practice, you do not need to specify Password, or UserName.
 The following example should work for a name of your choosing:
-```
+```powershell
 $newName='upgradeMe'
 $system=Get-WmiObject -Class Win32_ComputerSystem
 $system.Rename($newName)
@@ -65,7 +65,7 @@ Be sure to restart the machine and enjoy your newly named computer!
 
 I found providing the credentials of an elevated user while running PowerShell as a user without permissions still did not work.
 
-```
+```powershell
 $system.Rename($newName,"P@ssw0rd!","AdminUser")
 
 __GENUS          : 2
@@ -90,7 +90,7 @@ In fact, I would recommend not specifying the credentials as you may run into th
 ### 1326 - Logon Failure
 
 You will likely get this if you specified a password and a username in the command:
-```
+```powershell
 $system.Rename($newName,"P@ssw0rd!","Admnstr")
 
 __GENUS          : 2
@@ -112,7 +112,7 @@ Ensure the Password and User are in the correct spot (Password is the 2nd argume
 
 You have either specified an invalid character in the name, or you have some how exceeded the number of characters allowed for a computer name (63 character limit).  
 
-```
+```powershell
 $newName='Computer~~02'
 $system=GetWmiObject -Class Win32_ComputerSystem
 $system.Rename($newName)
@@ -141,7 +141,7 @@ This seems to only be a problem in a domain environment, and only occurs if you 
 Your domain controllers update the computer object name as soon as this command is run successfully.  If you try to run it again before rebooting, it will look in Active Directory for the 'old' name and not find it.
 After a reboot, your machine will now have the matching name to the one in Active Directory, and you can try again.
 
-```
+```powershell
 $newName='upgradeMe'
 $system=Get-WmiObject -Class Win32_ComputerSystem
 $system.Rename($newName)
