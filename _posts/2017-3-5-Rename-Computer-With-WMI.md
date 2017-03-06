@@ -87,6 +87,7 @@ That being said, if you are using an account with proper permissions, you can ge
 
 In fact, I would recommend not specifying the credentials as you may run into the following return value if you mistype.
 
+----
 
 ### 1326 - Logon Failure
 
@@ -108,6 +109,8 @@ ReturnValue      : 1326
 ```
 
 Ensure the Password and User are in the correct spot (Password is the 2nd argument, User is the 3rd) and that both are correctly spelled.
+
+----
 
 ### 87 - Invalid parameter
 
@@ -132,6 +135,8 @@ ReturnValue      : 87
 
 ```
 In this example we get the 87 return value because there are invalid characters in the new name. '~' is invalid in this case.
+
+----
 
 ### 2697 - Computer account could not be found
 
@@ -173,6 +178,8 @@ __NAMESPACE      :
 __PATH           :
 ReturnValue      : 2697
 ```
+
+-----
 
 I know there are plenty other return values; however, these were the codes that I encountered that were common enough to elaborate on.
 
