@@ -118,7 +118,7 @@ You have either specified an invalid character in the name, or you have some how
 
 ```powershell
 $newName='Computer~~02'
-$system=GetWmiObject -Class Win32_ComputerSystem
+$system=Get-WmiObject -Class Win32_ComputerSystem
 $system.Rename($newName)
 
 __GENUS          : 2
