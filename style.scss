@@ -33,7 +33,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: $helveticaNeue;
   color: $darkerGray;
-//  font-weight: 325;
+  font-weight: 300;
 
   line-height: 1.7;
   margin: 1em 0 15px;
@@ -45,8 +45,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 36px;
-  font-weight: 325
+  font-size: 32px;
+  font-weight: 100;
   a {
     color: inherit;
   }
@@ -54,17 +54,14 @@ h1 {
 
 h2 {
   font-size: 26px;
-  font-weight: 250;
 }
 
 h3 {
   font-size: 24px;
-  font-weight: 315;
 }
 
 h4 {
   font-size: 20px;
-  font-weight: 300;
   color: $gray;
 }
 
