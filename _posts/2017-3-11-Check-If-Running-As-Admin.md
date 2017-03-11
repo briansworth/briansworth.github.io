@@ -3,19 +3,19 @@ layout: post
 title: Check if you are running as Administrator
 ---
 
-I don't know about you, but sometimes I try to run commands that need administrative rights without checking if I am actually running in a shell with those permissions.
+I don't know about you, but sometimes I try to run commands that need administrative rights without checking if I have those permissions in my current session.
 There have even been cases where I have built a function or script that needed a single command to run as an Administrator somewhere near the end, only to have the function get half way before saying 'Access denied'.
 
 This post will help to resolve all that.
 
 I will be creating a simple function that allows you to check this quickly and easily.
-This should be used more as a utility/helper function; not a standalone function.
-
+This should be used more as a utility/helper function than a standalone command.
+<br>
 First we need to get your current identity:
 ```
 [System.Security.Principal.WindowsIdentity]::GetCurrent()
 ```
-You should get something like this returned (I took out the last few properties):
+You should get something like this (I took out the last few properties):
 ```
 AuthenticationType : NTLM
 ImpersonationLevel : None
@@ -38,10 +38,14 @@ $wid=[System.Security.Principal.WindowsIdentity]::GetCurrent()
 $principal=new-object Security.Principal.WindowsPrincipal($wid)
 ```
 
-The $principal object we just got back has a method 'IsInRole' that we can use against the Administrator role to get our answer.  First we will need to get the admin role stored in an object.
+A user's principal contains the user's Identity and their Role.
+We will use this object to validate whether the current identity has the Administrator role.
+<br>
+The $principal object has a method 'IsInRole' that we can use against the Administrator role to get our answer.  First we will need to get the actual built-in Administrator role stored into an object.
 ```
 $adminRole=[System.Security.Principal.WindowsBuiltInRole]::Administrator
 ```
+Now that we have all the parts, we can finally get our answer.
 <br>
 
 ### Putting it all together
@@ -56,8 +60,9 @@ $principal.IsInRole($adminRole)
 
 ```
 
-Just these 4 lines of code will give you a True or False answer.
-Putting this into a helper function is incredibly straight forward.
+Just these 4 lines of code will give us a True or False answer.
+Making this into a helper function is incredibly straight forward.
+<br>
 
 ### Here's the function:
 
