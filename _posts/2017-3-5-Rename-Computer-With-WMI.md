@@ -58,10 +58,12 @@ ReturnValue      : 0
 A return value of 0 means success!
 Be sure to restart the machine and enjoy your newly named computer!
 
----
+<br></br>
 ## Common return values
-
+<br></br>
 ### 5 - Access denied
+
+---
 
 I found providing the credentials of an elevated user while running PowerShell as a user without permissions still did not work.
 
@@ -87,10 +89,11 @@ That being said, if you are using an account with proper permissions, you can ge
 
 In fact, I would recommend not specifying the credentials as you may run into the following return value if you mistype.
 
-----
+<br></br>
 
 ### 1326 - Logon Failure
 
+----
 You will likely get this if you specified a password and a username in the command:
 ```powershell
 $system.Rename($newName,"P@ssw0rd!","Admnstr")
@@ -110,10 +113,11 @@ ReturnValue      : 1326
 
 Ensure the Password and User are in the correct spot (Password is the 2nd argument, User is the 3rd) and that both are correctly spelled.
 
-----
+<br></br>
 
 ### 87 - Invalid parameter
 
+----
 You have either specified an invalid character in the name, or you have some how exceeded the number of characters allowed for a computer name (63 character limit).  
 
 ```powershell
@@ -136,10 +140,11 @@ ReturnValue      : 87
 ```
 In this example we get the 87 return value because there are invalid characters in the new name. '~' is invalid in this case.
 
-----
+<br></br>
 
 ### 2697 - Computer account could not be found
 
+----
 This one is interesting as it is a network error. You can fix this be rebooting and trying again.
 
 This seems to only be a problem in a domain environment, and only occurs if you have already successfully renamed the computer without restarting the machine. 
@@ -179,6 +184,7 @@ __PATH           :
 ReturnValue      : 2697
 ```
 
+<br></br>
 -----
 
 I know there are plenty other return values; however, these were the codes that I encountered that were common enough to elaborate on.
