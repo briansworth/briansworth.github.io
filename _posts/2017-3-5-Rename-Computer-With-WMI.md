@@ -60,7 +60,6 @@ Be sure to restart the machine and enjoy your newly named computer!
 
 <br>
 ## Common return values
-<br>
 ### 5 - Access denied
 
 ---
