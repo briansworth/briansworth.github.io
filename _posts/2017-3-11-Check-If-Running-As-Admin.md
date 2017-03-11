@@ -65,7 +65,8 @@ $principal.IsInRole($adminRole)
 
 Just these 4 lines of code will give you a True or False answer.
 Putting this into a helper function is incredibly straight forward.
-###Here's the function:
+
+### Here's the function:
 
 -----
 ```
