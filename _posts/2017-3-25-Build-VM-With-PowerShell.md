@@ -63,10 +63,11 @@ New-VMSwitch -Name 'External vSwitch' -NetAdapterName $adapterName -AllowManagem
 ``` 
 
 It may take a while to create, but you should now have an External Virtual Switch.
-
-> Name             SwitchType NetAdapterInterfaceDescription
-> ----             ---------- ------------------------------
-> External vSwitch External   Intel(R) Centrino(R) Wireless-N 2230
+```
+Name             SwitchType NetAdapterInterfaceDescription
+----             ---------- ------------------------------
+External vSwitch External   Intel(R) Centrino(R) Wireless-N 2230
+```
 <br>
 
 ## Time to Build
@@ -83,7 +84,7 @@ $vmName='Win10'
 $vSwitchName='External vSwitch'
 $vmPath="V:\VMs\$vmName"
 $vhdPath="$vmPath\$($vmName).vhdx"
-$isoPath="V:\ISOs\14393.0.160715-1616.RS1_RELEASE_CLIENTENTERPRISE_S_EVAL_X64FRE_EN-US.ISO"
+$isoPath="V:\ISOs\win10.iso"
 # If your ISO is for a version of windows before the Win8 generation
 # use Generation 1, otherwise use Generation 2
 # for linux use Gen 1
