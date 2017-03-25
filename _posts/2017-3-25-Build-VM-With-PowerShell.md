@@ -34,6 +34,7 @@ Name             SwitchType NetAdapterInterfaceDescription
 internal         Internal
 ```
 
+I have a VMSwitch already, but it is Internal and won't have access to my local network or the internet.
 Looks like I need to create one.  
 *If you already have an External Virtual Switch skip ahead to 'Time to Build'* 
 <br>
@@ -53,9 +54,10 @@ Ethernet                  Realtek PCIe GBE Family Controller            6 Discon
 Wi-Fi                     Intel(R) Centrino(R) Wireless-N 2230         15 Up
 ```
 
-Since I'm on a laptop, I will be using my **Wi-Fi** adapter.  
-*NOTE: You can see that my ethernet port is not plugged in: Status 'Disconnected', and that my 'internal' virtual switch shows up in this list.*
+The external virtual switch will need to use a physical network adapter in order to access my network and everything on it.
+Since I'm on a laptop, I am using my **Wi-Fi** network adapter. So specifying 'Wi-Fi' as the network adapter to use for the external virtual switch should work fine.
 
+*NOTE: You can see that my ethernet port is not plugged in: Status 'Disconnected', and that my 'internal' virtual switch shows up in this list.*
 
 ```powershell
 $adapterName='Wi-Fi'
