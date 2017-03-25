@@ -1,18 +1,18 @@
 ---
 layout: post
-title: Hello World!
+title: Build a VM Using Only PowerShell
 ---
 
 In this post I will be building a Hyper-V Virtual Machine from scratch, using only PowerShell
 <br>
 
-### Prerequisistes
+### Prerequisites
 
 ----
 
 1. Hardware: Should be run on a physical machine (not a virtual machine)
 2. Operating System: Windows 8.1 Pro/Enterprise, Windows 10 Pro/Enterprise, Windows Server 2012 R2, Windows Server 2016
-3. No other HyperVisor: If you have Virtual Box or VMWare installed be aware that installing Hyper-V may break your other HyperVisor.
+3. No other Hypervisor: If you have Virtual Box or VMWare installed be aware that installing Hyper-V may break your other Hypervisor.
 5. Operating System ISO to install on the VM
 4. Permissions: Local Administrator, or Hyper-V Administrator
 
@@ -20,8 +20,7 @@ In this post I will be building a Hyper-V Virtual Machine from scratch, using on
 I will be running the following on a Windows 10 Pro OS, with 8Gb Memory, and a 3rd Gen Intel i7 @ 2.20Ghz processor.  This is a pretty old system but it won't have any issues getting this up and running.
 <br>
 
-## Getting Started:
-
+## Getting Started
 ----
 
 First things first, let's make sure we have all of the necessary information.  I want my VM to be on my network with internet access.
@@ -63,16 +62,14 @@ $adapterName='Wi-Fi'
 New-VMSwitch -Name 'External vSwitch' -NetAdapterName $adapterName -AllowManagementOS $true
 ``` 
 
-It may take a while, but you should now have an External VMSwitch
+It may take a while to create, but you should now have an External Virtual Switch.
 
-```
-Name             SwitchType NetAdapterInterfaceDescription
-----             ---------- ------------------------------
-External vSwitch External   Intel(R) Centrino(R) Wireless-N 2230
-```
+> Name             SwitchType NetAdapterInterfaceDescription
+> ----             ---------- ------------------------------
+> External vSwitch External   Intel(R) Centrino(R) Wireless-N 2230
 <br>
 
-### Time to Build
+## Time to Build
 
 ----
 
