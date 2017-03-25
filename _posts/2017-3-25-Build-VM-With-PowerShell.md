@@ -55,6 +55,7 @@ Wi-Fi                     Intel(R) Centrino(R) Wireless-N 2230         15 Up
 ```
 
 The external virtual switch will need to use a physical network adapter in order to access my network and everything on it.
+
 Since I'm on a laptop, I am using my **Wi-Fi** network adapter. So specifying 'Wi-Fi' as the network adapter to use for the external virtual switch should work fine.
 
 *NOTE: You can see that my ethernet port is not plugged in: Status 'Disconnected', and that my 'internal' virtual switch shows up in this list.*
