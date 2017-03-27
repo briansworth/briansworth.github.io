@@ -12,9 +12,10 @@ In this post I will be building a Hyper-V Virtual Machine from scratch, using on
 
 1. Hardware: Should be run on a physical machine (not a virtual machine)
 2. Operating System: Windows 8.1 Pro/Enterprise, Windows 10 Pro/Enterprise, Windows Server 2012 R2, Windows Server 2016
-3. No other Hypervisor: If you have Virtual Box or VMWare installed be aware that installing Hyper-V may break your other Hypervisor.
+3. Hyper-V Installed
+4. No other Hypervisor: If you have Virtual Box or VMWare installed be aware that installing Hyper-V may break your other Hypervisor.
 5. Operating System ISO to install on the VM
-4. Permissions: Local Administrator, or Hyper-V Administrator
+6. Permissions: Local Administrator, or Hyper-V Administrator
 
 **My Setup:**
 I will be running the following on a Windows 10 Pro OS, with 8Gb Memory, and a 3rd Gen Intel i7 @ 2.20Ghz processor.  This is a pretty old system but it won't have any issues getting this up and running.
