@@ -26,13 +26,6 @@ cd $ENV:SystemRoot\System32\Sysprep
 
 In this directory you will find a folder called 'Panther', which can be used when applying an AutoUnattend.xml file for additional configuration.  More importantly, is the 'sysprep.exe' executable.
 
-```powershell
-sysprep.exe /?
-```
-
-Here you can see the options available.  
-You can simply run sysprep.exe and use the GUI, but that's not my style (there's also a switch I will use that's only available from the cmd line).
-
 # ![_config.yml]({{ site.baseurl }}/images/sysprep.PNG)
 
 <br>
@@ -43,17 +36,17 @@ For this use case the switches I will be using are:
 3. Mode:VM - This switch makes the first boot faster by skipping some hardware detection. \* 
 4. Shutdown - I want to use this sysprep'd image for other VMs, so I don't want to restart and customize more
 
-\* - NOTE: This option is only supported on Win8/Server 2012 and up.  It should not be used if you want to use this image on a physical device, or use this image on another hypervisor.
+\*NOTE: This option is only supported on Win8/Server 2012 and up.  It should not be used if you want to use this image on a physical device, or use this image on another hypervisor.
 
-```powershell
+```
 .\sysprep.exe /generalize /oobe /mode:vm /shutdown
 ```
-<br>
+
 # ![_config.yml]({{ site.baseurl }}/images/sysprepProc.PNG)
 
 The VM will shutdown after successfully completing the sysprep process.
 <br>
-
+<br>
 
 ## Using the Image
 ----
@@ -67,7 +60,7 @@ Get-VMHardDiskDrive -VMName $vmName | Select -expand Path
 ```
 As long as you only have 1 vhd file for that vm, this will tell you your path.
 
-I have created a Templates folder to keep these template files for easy access.
+I have created a Templates folder (V:\Templates) to keep these template files for easy access.
 
 ```powershell
 $vmName='serverCore'
@@ -121,13 +114,21 @@ Set-VM -VMName $vmName -ProcessorCount $vCPU
 Start-VM -VMName $vmName
 vmconnect.exe localhost $vmName
 ```
-It's important to note that the VMs that you create from this template should match the generation of the VM you created to make this template.
+It's important to note that the 'generation' of the VMs that you create from this template should match the generation of the original VM you used to make the template.
+
+In a matter of minutes you should be booted into your new VM, and ready to login.
+If you are like me and need to build a lab quickly, this will save you loads of time in the future.
+This process is completely automated and doesn't require you to select an option like it does during the original installation.
+
+You can loop through this script with different vm names, take a coffee break, and come back to your batch of VMs fully installed and ready to configure.
 
 <br>
 #### Additional Comments
 ----
+As you can see, with a bit of up front work, you can have an automated vm provisioning script.
+It is relatively easy to add some error checking and turn this into a function to do the whole thing.
 
-The Copy-Item will take a while to finish and unfortunately doesn't provide an indication of progress. You could replace this with Robocopy for a more reliable copy of the file.
+The Copy-Item will take a while to finish and unfortunately doesn't provide an indication of progress. You could replace this with Robocopy for a more reliable copy of the vhd file.
 
 There is no validation in the code used above.  If the VM name of the VHD path is already taken, there will be errors and the VM will not build.  If the vmname is already taken, it may start the VM and modify the Processor Count of that VM.
 
@@ -139,21 +140,18 @@ Some VM configuration and same operating system on the same hypervisor.  No VMs 
 
 \*After copy and install (time from boot after 'Restart Now' prompt to console being loaded)
 
+This table sums it up nicely.  Pay attention to the 'Boot' time, which illustrates the differences in sysprep modes.
 
-16:30.37 -VM Creation 14.25 -boot 5:31.46 Install
-
-6:05.98 - Copy: 4:02.79 -VM Creation 12.96
-
-9:31.84 - Copy: 5:57.03 -VM Creation 15.31 - Boot 
-
-|VM Creation Mode| Total (mm:ss.msms) |Boot (mm:ss.msms)|Copy/Install (mm:ss.msms)|VM Provisioning (mm:ss.msms )| 
+|**VM Creation Mode**| Total (mm:ss) |**Boot** (mm:ss.msms)|Copy/Install (mm:ss.msms)|VM Provisioning (mm:ss.msms )| 
 |----------------|--------------------|-----------------|-------------------------|-----------------------------|
-| DVD            |16:30.37 | 5:31.46 |10:44:66 | 0:14.25  |
-| Sysprep        | 9:31.84 | 3:19.50 | 5:57.03 | 0:15.31  |
-| Sysprep VM Mode| 6:05:98 | 1:50.23 | 4:02:79 | 0:12:96  |
+| **DVD**            |16:30 | **5:31** |10:45 | 0:14  |
+| **Sysprep**        | 9:32 | **3:20** | 5:57 | 0:15  |
+| **Sysprep VM Mode**| 6:06 | **1:50** | 4:03 | 0:13  |
 
 It should be noted that the image I used in the 'Sysprep' creation mode, was approximately 2Gb larger than the 'Sysprep VM Mode' image.  This contributed to the longer copy time, but should not influence the difference in boot time.
+These values shouldn't be taken too seriously as they were measured once and not from a large sample size.
 
+The copy/install times will vary from machine to machine.  My computer uses a consumer grade Western Digital Hard Drive (5400 rpm).  Running this on SSDs are faster HDD will result in much faster copy times.
 <br>
 
 *Thanks for reading,*
