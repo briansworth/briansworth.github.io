@@ -140,7 +140,7 @@ Some VM configuration and same operating system on the same hypervisor.  No VMs 
 
 \*After copy and install (time from boot after 'Restart Now' prompt to console being loaded)
 
-This table sums it up nicely.  Pay attention to the 'Boot' time, which illustrates the differences in sysprep modes.
+This table sums up the time until the VM is useable nicely.  The 'Boot' time illustrates the differences in sysprep modes (VM Mode/not VM Mode).
 
 |**VM Creation Mode** | *Total (mm:ss)* | **Boot (mm:ss)** | *Copy/Install (mm:ss)*|
 |:-------------------:+:---------------:+:----------------:+:---------------------:|
