@@ -143,7 +143,7 @@ Some VM configuration and same operating system on the same hypervisor.  No VMs 
 This table sums it up nicely.  Pay attention to the 'Boot' time, which illustrates the differences in sysprep modes.
 
 |**VM Creation Mode** | Total (mm:ss) | **Boot** (mm:ss) | Copy/Install (mm:ss)|
-+:--------------:+:------------------:+:----------------:+:-------------------:+
+|:--------------:+:------------------:+:----------------:+:-------------------:|
 | DVD            |       16:30        |     **5:31**     |     10:45           |
 | Sysprep        |        9:32        |     **3:20**     |      5:57           |
 | Sysprep VM Mode|        6:06        |     **1:50**     |      4:03           |
