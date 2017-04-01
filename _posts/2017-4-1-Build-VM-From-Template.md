@@ -142,11 +142,13 @@ Some VM configuration and same operating system on the same hypervisor.  No VMs 
 
 This table sums it up nicely.  Pay attention to the 'Boot' time, which illustrates the differences in sysprep modes.
 
-|**VM Creation Mode** | Total (mm:ss) | **Boot** (mm:ss) | Copy/Install (mm:ss) | VM Provisioning (mm:ss)| 
-|----------------|--------------------|-----------------|-------------------------|-----------------------------|
-| **DVD**            | 16:30| **5:31**| 10:45| 0:14|
-| **Sysprep**        |  9:32| **3:20**|  5:57| 0:15|
-| **Sysprep VM Mode**|  6:06| **1:50**|  4:03| 0:13|
+|**VM Creation Mode** | Total (mm:ss) | **Boot** (mm:ss) | Copy/Install (mm:ss) |
+|:--------------:|-------------------:|----------------:|----------------------:|
+| DVD            | 16:30| **5:31**| 10:45|
+| Sysprep        |  9:32| **3:20**|  5:57|
+| Sysprep VM Mode|  6:06| **1:50**|  4:03|
+
+The missing 12-15 seconds is the time it took to create/register the VM in Hyper-V.
 
 It should be noted that the image I used in the 'Sysprep' creation mode, was approximately 2Gb larger than the 'Sysprep VM Mode' image.  This contributed to the longer copy time, but should not influence the difference in boot time.
 These values shouldn't be taken too seriously as they were measured once and not from a large sample size.
