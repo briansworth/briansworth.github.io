@@ -9,7 +9,7 @@ A lot of work can go into creating a base image, but it doesn't have to.  I will
 
 <br>
 
-In my last [post ](http://http://codeandkeep.com/Build-VM-With-PowerShell/), I showed a simple way of creating a VM using only PowerShell.
+In my last [post ](http://codeandkeep.com/Build-VM-With-PowerShell/), I showed a simple way of creating a VM using only PowerShell.
 I would recommend looking at that post first and testing it out to ensure you know the basics of PowerShell and Hyper-V.
 
 <br>
@@ -148,9 +148,9 @@ Some VM configuration and same operating system on the same hypervisor.  No VMs 
 
 |VM Creation Mode| Total (mm:ss.msms) |Boot (mm:ss.msms)|Copy/Install (mm:ss.msms)|VM Provisioning (mm:ss.msms )| 
 |----------------|--------------------|-----------------|-------------------------|-----------------------------|
-| DVD            |     16:30.37       |     5:31.46     |        10:44:66         |  0:14.25                    |
-| Sysprep        |      9:31.84       |     3:19.50     |         5:57.03         |  0:15.31                    |
-| Sysprep VM Mode|      6:05:98       |     1:50.23     |         4:02:79         |  0:12:96                    |
+| DVD            |16:30.37 | 5:31.46 |10:44:66 | 0:14.25  |
+| Sysprep        | 9:31.84 | 3:19.50 | 5:57.03 | 0:15.31  |
+| Sysprep VM Mode| 6:05:98 | 1:50.23 | 4:02:79 | 0:12:96  |
 
 It should be noted that the image I used in the 'Sysprep' creation mode, was approximately 2Gb larger than the 'Sysprep VM Mode' image.  This contributed to the longer copy time, but should not influence the difference in boot time.
 
