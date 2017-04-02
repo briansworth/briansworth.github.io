@@ -14,4 +14,4 @@ Automating it is even cooler.
 
 ### Contact me
 
-[brian@powertheshell.ninja](mailto:brian@powertheshell.ninja)
+[brian@CodeAndKeep.com](mailto:brian@CodeAndKeep.com)
