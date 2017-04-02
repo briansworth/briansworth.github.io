@@ -12,7 +12,7 @@ I will be creating a simple function that allows you to check this quickly and e
 This should be used more as a utility/helper function than a standalone command.
 <br>
 First we need to get your current identity:
-```
+```powershell
 [System.Security.Principal.WindowsIdentity]::GetCurrent()
 ```
 You should get something like this (I took out the last few properties):
@@ -33,7 +33,7 @@ This contains some interesting information, like your SID and all the group SIDs
 <br>
 
 Next we need to get the principal from the Windows Identity we just obtained:
-```
+```powershell
 $wid=[System.Security.Principal.WindowsIdentity]::GetCurrent()
 $principal=new-object Security.Principal.WindowsPrincipal($wid)
 ```
@@ -52,7 +52,7 @@ Now that we have all the parts, we can finally get our answer.
 
 -----
 
-```
+```powershell
 $wid=[System.Security.Principal.WindowsIdentity]::GetCurrent()
 $principal=New-Object -TypeName System.Security.Principal.WindowsPrincipal -ArgumentList $wid
 $adminRole=[System.Security.Principal.WindowsBuiltInRole]::Administrator
@@ -67,7 +67,7 @@ Making this into a helper function is incredibly straight forward.
 ### Here's the function:
 
 -----
-```
+```powershell
 function isAdministrator {
   $wid=[System.Security.Principal.WindowsIdentity]::GetCurrent()
   $principal=New-Object -TypeName System.Security.Principal.WindowsPrincipal -ArgumentList $wid
