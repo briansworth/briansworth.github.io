@@ -26,7 +26,7 @@ cd $ENV:SystemRoot\System32\Sysprep
 
 In this directory you will find a folder called 'Panther', which can be used when applying an AutoUnattend.xml file for additional configuration.  More importantly, is the 'sysprep.exe' executable.
 
-# ![_config.yml]({{ site.baseurl }}/images/sysprep.PNG)
+ ![_config.yml]({{ site.baseurl }}/images/sysprep.PNG)
 
 <br>
 
@@ -42,7 +42,7 @@ For this use case the switches I will be using are:
 .\sysprep.exe /generalize /oobe /mode:vm /shutdown
 ```
 
-# ![_config.yml]({{ site.baseurl }}/images/sysprepProc.PNG)
+ ![_config.yml]({{ site.baseurl }}/images/sysprepProc.PNG)
 
 The VM will shutdown after successfully completing the sysprep process.
 <br>
@@ -142,7 +142,7 @@ They had the same VM configuration (cpu, memory, vmswitch), the same operating s
 This table sums up the time until the VM is successfully booted.  The 'Boot' time illustrates the differences in sysprep modes (VM Mode/not VM Mode).
 
 |**VM Creation Mode** | *Total (mm:ss)* | **Boot (mm:ss)** | *Copy/Install (mm:ss)*|
-|:-------------------:+:---------------:+:----------------:+:---------------------:|
+|:-------------------:|:---------------:|:----------------:|----------------------:|
 | **DVD**             |      *16:30*    |     **5:31**     |        *10:45*        |
 | **Sysprep**         |       *9:32*    |     **3:20**     |         *5:57*        |
 | **Sysprep VM Mode** |       *6:06*    |     **1:50**     |         *4:03*        |
