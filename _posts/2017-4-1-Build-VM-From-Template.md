@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Build a VM from template
+title: Build a VM from a Template
 ---
 
 Creating VMs from a base image can make your life a lot easier.  Not having to sit through and select the same options during an OS install is a big time save.  
