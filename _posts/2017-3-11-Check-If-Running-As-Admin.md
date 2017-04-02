@@ -42,7 +42,7 @@ A user's principal contains the user's Identity and their Role.
 We will use this object to validate whether the current identity has the Administrator role.
 <br>
 The $principal object has a method 'IsInRole' that we can use against the Administrator role to get our answer.  First we will need to get the actual built-in Administrator role stored into an object.
-```
+```powershell
 $adminRole=[System.Security.Principal.WindowsBuiltInRole]::Administrator
 ```
 Now that we have all the parts, we can finally get our answer.
