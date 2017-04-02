@@ -120,27 +120,26 @@ In a matter of minutes you should be booted into your new VM, and ready to login
 If you are like me and need to build a lab quickly, this will save you loads of time in the future.
 This process is completely automated and doesn't require you to select an option like it does during the original installation.
 
-You can loop through this script with different vm names, take a coffee break, and come back to your batch of VMs fully installed and ready to configure.
+You can loop through this script using multiple/different vm names, take a coffee break, and come back to your batch of VMs fully installed and ready to go.
 
 <br>
 #### Additional Comments
 ----
-As you can see, with a bit of up front work, you can have an automated vm provisioning script.
 It is relatively easy to add some error checking and turn this into a function to do the whole thing.
 
 The Copy-Item will take a while to finish and unfortunately doesn't provide an indication of progress. You could replace this with Robocopy for a more reliable copy of the vhd file.
 
-There is no validation in the code used above.  If the VM name of the VHD path is already taken, there will be errors and the VM will not build.  If the vmname is already taken, it may start the VM and modify the Processor Count of that VM.
+There is no validation in the code used above.  If the VM name is already taken, there will be errors and the VM will not build. In this case, it may start the VM and modify its processor count.
 
 I did a quick comparison of the first boot of a machine sysprep'd with /mode:VM and without /mode:VM.
-Some VM configuration and same operating system on the same hypervisor.  No VMs were running and the system had more than enough memory to quickly start the VM.
+They had the same VM configuration (cpu, memory, vmswitch), the same operating system, and ran on the same hypervisor (physical machine).  No other VMs were running and the system had more than enough memory to quickly start the VM.
 1. Without /mode:vm -  3:19.50
 2. With /mode:vm -  1:50.23
 3. From DVD - 5:31.46 \*
 
 \*After copy and install (time from boot after 'Restart Now' prompt to console being loaded)
 
-This table sums up the time until the VM is useable nicely.  The 'Boot' time illustrates the differences in sysprep modes (VM Mode/not VM Mode).
+This table sums up the time until the VM is successfully booted.  The 'Boot' time illustrates the differences in sysprep modes (VM Mode/not VM Mode).
 
 |**VM Creation Mode** | *Total (mm:ss)* | **Boot (mm:ss)** | *Copy/Install (mm:ss)*|
 |:-------------------:+:---------------:+:----------------:+:---------------------:|
@@ -148,7 +147,7 @@ This table sums up the time until the VM is useable nicely.  The 'Boot' time ill
 | **Sysprep**         |       *9:32*    |     **3:20**     |         *5:57*        |
 | **Sysprep VM Mode** |       *6:06*    |     **1:50**     |         *4:03*        |
 
-The missing 12-15 seconds is the time it took to create/register the VM in Hyper-V.
+The missing 12-15 seconds is the time it took to create/register the VM in Hyper-V on the host.
 
 It should be noted that the image I used in the 'Sysprep' creation mode, was approximately 2Gb larger than the 'Sysprep VM Mode' image.  This contributed to the longer copy time, but should not influence the difference in boot time.
 These values shouldn't be taken too seriously as they were measured once and not from a large sample size.
