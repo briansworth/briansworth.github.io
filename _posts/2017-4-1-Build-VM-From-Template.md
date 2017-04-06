@@ -5,13 +5,10 @@ title: Build a VM from a Template
 
 Creating VMs from a base image can make your life a lot easier.  Not having to sit through and select the same options during an OS install is a big time save.  
 A lot of work can go into creating a base image, but it doesn't have to.  I will briefly touch on how to create a base Windows image and then get into the automation of creating a Hyper-V VM from that template.
-
-
 <br>
 
 In my last [post ](http://codeandkeep.com/Build-VM-With-PowerShell/), I showed a simple way of creating a VM using only PowerShell.
 I would recommend looking at that post first and testing it out to ensure you know the basics of PowerShell and Hyper-V.
-
 <br>
 
 To start, build a VM with the Windows OS that you wish to use (I will be using Server 2016 core).  The process should be the same for Windows 7/Server 2008 and up. 
@@ -33,7 +30,7 @@ In this directory you will find a folder called 'Panther', which can be used whe
 For this use case the switches I will be using are:
 1. Generalize - Allows this image to be applied to more then just this machine
 2. Oobe - Out of Box Experience: The alternative is Audit Mode, but that's not necessary for my use case
-3. Mode:VM - This switch makes the first boot faster by skipping some hardware detection. \* 
+3. Mode:VM - This switch makes the first boot faster by skipping some hardware detection \* 
 4. Shutdown - I want to use this sysprep'd image for other VMs, so I don't want to restart and customize more
 
 \*NOTE: This option is only supported on Win8/Server 2012 and up.  It should not be used if you want to use this image on a physical device, or use this image on another hypervisor.
@@ -51,8 +48,8 @@ The VM will shutdown after successfully completing the sysprep process.
 ## Using the Image
 ----
 
-First things first, you should remove the vm from Hyper-V (just keep the VHDX file).
-You should know where this file is located.  In my case it is V:\VMs\serverCore\serverCore.vhdx
+First things first, you should remove the vm from Hyper-V, just keep the VHDX file.
+You should know where this file is located.  In my case it is V:\VMs\serverCore\serverCore.vhdx.
 You can find the file location using the following steps:
 ```powershell
 $vmName='serverCore'
