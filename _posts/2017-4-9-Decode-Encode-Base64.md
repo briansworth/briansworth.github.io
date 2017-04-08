@@ -70,7 +70,7 @@ Again, this is quite simple to follow:
 
 Let's make a couple functions for encoding and decoding strings.
 
-**Encode**
+#### Encode
 
 ```powershell
 function ConvertTo-EncodedString {
@@ -93,7 +93,7 @@ function ConvertTo-EncodedString {
 }
 ```
 
-**Decode**
+#### Decode
 
 ```powershell
 function ConvertFrom-EncodedString {
