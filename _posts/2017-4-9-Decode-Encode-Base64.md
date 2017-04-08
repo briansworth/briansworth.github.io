@@ -3,7 +3,7 @@ layout: post
 title: String Encoding and Decoding - Base64
 ---
 
-Here's a quick one.  In this post we'll create 2 
+Here's a quick one.  In this post we'll create 2 basic functions for encoding and decoding strings.
 <br>
 
 We will need to use some .net classes for this.
@@ -12,6 +12,7 @@ Here's the classes for encoding:
 2. [System.Convert]
 
 Since [System] is always loaded, it will be omitted.
+<br>
 
 ### Encoding Strings
 ----
@@ -33,9 +34,8 @@ Write-Output "Now it's different gibberish -> $encoded"
 ```
 Pretty straightforward stuff: 
 1. Define your string
-2. The the byte representation of that string - Byte Array
+2. Get the byte array of the string 
 3. Convert to Base64
-
 <br>
 
 ### Decoding Strings
@@ -70,7 +70,7 @@ Again, this is quite simple to follow:
 
 Let's make a couple functions for encoding and decoding strings.
 
-*Encode*
+**Encode**
 
 ```powershell
 function ConvertTo-EncodedString {
@@ -93,7 +93,7 @@ function ConvertTo-EncodedString {
 }
 ```
 
-*Decode*
+**Decode**
 
 ```powershell
 function ConvertFrom-EncodedString {
