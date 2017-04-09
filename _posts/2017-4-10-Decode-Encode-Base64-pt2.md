@@ -1,0 +1,120 @@
+---
+layout: post
+title: String Encoding and Decoding - Base64 - Part 2
+---
+
+I wasn't intending on making this a 2 part post ([last post](http://codeandkeep.com/Decode-Encode-Base64/)), but I couldn't leave without at least attempting to make the Encode/Decode function capable of encoding more than just unicode.
+<br>
+
+We will be using the same .net classes as before [System.Text.Encode] and [System.Convert].
+The really nice thing about the [Text.Encode] class is that the different types of encoding are named appropriately, AND they all contain the GetBytes() and GetString() methods.
+
+This really makes updating these functions easy.
+<br>
+
+### Encode
+----
+<br>
+```powershell
+function ConvertTo-EncodedString {
+  [CmdletBinding()] Param(
+    [Parameter(
+      Mandatory=$true,
+      Position=0,
+      ValueFromPipeline=$true
+    )]
+    [String[]]$String,
+
+    [Parameter(Position=1)]
+    [ValidateSet(
+      'ASCII',
+      'Unicode',
+      'UTF32',
+      'UTF8',
+      'UTF7'
+    )]
+    [String]$Encoding='Unicode'
+  )
+  Begin{} 
+  Process{
+    foreach($str in $String){
+      Try{
+        [Byte[]]$uniBytes=[Text.Encoding]::$Encoding.GetBytes($str)
+        [String]$encode=[Convert]::ToBase64String($uniBytes)
+        Write-Output $encode
+      }Catch{
+        Write-Error $_
+      }
+    }
+  }
+  End{}
+}
+```
+
+
+### Decode
+----
+<br>
+```powershell
+function ConvertFrom-EncodedString {
+  [CmdletBinding()]
+  Param(
+    [Parameter(
+      Mandatory=$true,
+      Position=0,
+      ValueFromPipeline=$true
+    )]
+    [String[]]$String,
+
+    [Parameter(Position=1)]
+    [ValidateSet(
+      'ASCII',
+      'Unicode',
+      'UTF32',
+      'UTF8',
+      'UTF7'
+    )]
+    [String]$Encoding='Unicode'
+  )
+  Begin{}
+  Process{
+    foreach($str in $String){
+      Try{
+        [Byte[]]$baseBytes=[Convert]::FromBase64String($String)
+        [String]$decode=[Text.Encoding]::$Encoding.GetString($baseBytes)
+        Write-Output $decode
+      }Catch{
+        Write-Error $_
+      }
+    }
+  }
+  End{}
+}
+```
+<br>
+
+#### Examples
+```powershell
+# Puts your encoded string on your Desktop
+ConvertTo-EncodedString -String 'Super secret message' > ~/Desktop/Nothing_to_see_here.txt
+
+# Decode the secret message
+cat ~/Desktop/Nothing_to_see_here.txt | ConvertFrom-EncodedString 
+```
+<br>
+
+#### Additional Comments
+----
+<br>
+As you can see, this was made incredibly easy be restricting the values that are allowed for the 'Encoding' parameter to the exact values that are used in the [Text.Encoding] class.  
+
+Another change worth noting is that both functions will now accept multiple strings.  
+
+Luckily the error generating by these methods are terminating errors, so failures will get caught without continuing and filling up the screen with red text.
+<br>
+One Thing that I could add, is support for multiple Encoding values.  This would essentially provide a simple way to double or triple encode/decode strings with the same, or even different encodings.  This seems like overkill to me, but maybe if I will cave and just add it in the next post.
+
+<br>
+*Thanks for reading,*
+
+PS> exit
