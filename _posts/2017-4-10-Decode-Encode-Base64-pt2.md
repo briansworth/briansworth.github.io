@@ -3,7 +3,7 @@ layout: post
 title: String Encoding and Decoding - Base64 - Part 2
 ---
 
-I wasn't intending on making this a 2 part post ([Part 1](http://codeandkeep.com/Decode-Encode-Base64/)), but I couldn't leave without at least attempting to make the Encode/Decode functions capable of encoding more than just Unicode.
+I wasn't intending on making this a 2 part post ([Part 1](http://codeandkeep.com/Decode-Encode-Base64/)), but I couldn't leave the code alone.  I mentioned in part 1 that additional encoding options could be added, and that's exactly what I have done here.
 <br>
 
 We will be using the same .net classes as before [System.Text.Encode] and [System.Convert].
@@ -90,10 +90,10 @@ function ConvertFrom-EncodedString {
 }
 ```
 <br>
-#### Examples
+### Examples
 ```powershell
 # Puts your encoded string on your Desktop
-ConvertTo-EncodedString -String 'Super secret message' > ~/Desktop/Nothing_to_see_here.txt
+ConvertTo-EncodedString 'Super secret message' > ~/Desktop/Nothing_to_see_here.txt
 
 # Decode the secret message
 cat ~/Desktop/Nothing_to_see_here.txt | ConvertFrom-EncodedString 
