@@ -24,7 +24,7 @@ $encoded=[Convert]::ToBase64String($uniBytes)
 Write-Output "Now it really is gibberish -> $encoded"
 ```
 
-The some process can be used using different encodings, ASCII for example. 
+The same process can be used using different encodings; ASCII for example. 
 
 ```powershell
 $encodeMe='Gibberish'
@@ -65,7 +65,7 @@ Again, this is quite simple to follow:
 2. Get byte array from that string - from Base64
 3. Decode the byte array
 
-#### Making functions
+#### The Functions
 ----
 
 Let's make a couple functions for encoding and decoding strings.
@@ -115,7 +115,7 @@ function ConvertFrom-EncodedString {
     End{}
 }
 ```
-You could make this much more versatile by adding support for more encoding options like ASCII, but here's a start.
+You could make this much more versatile by adding support for more encoding options like ASCII, but this is a start.
 We will also be able to use these tools for future projects.
 
 <br>
