@@ -70,6 +70,7 @@ Cons:
 Pros:
 1. Can be used a script without user input
 2. Easily validate if typed correctly
+
 Cons:
 1. Password is in clear text in command history
 
