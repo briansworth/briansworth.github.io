@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Read Passwords in PowerShell
+title: Using Passwords in PowerShell
 ---
 
 Working with passwords and credentials does not have to be scary.
