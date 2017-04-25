@@ -175,7 +175,7 @@ The password requirements are as follows:
 3. Must contain a lowercase letter
 4. Must contain a number or special character
 
-If any of these conditions isn't met, an error will be written to the screen and the message will indicate all conditions were not met (including if they do not match).
+If any of these conditions isn't met, an error will be written to the screen and the message will indicate all conditions that were not met (including if they do not match).
 
 <br>
 Hopefully you find this to be a useful tool to keep in your inventory.
