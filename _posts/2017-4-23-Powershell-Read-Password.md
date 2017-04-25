@@ -168,8 +168,9 @@ function Read-Password {
 <br>
 This is pretty rudimentary.  It has some basic password requirements hard coded into it (it would be nice to make them parameters in the future).
 These hardcoded restrictions should work with most default password policies.  Some environments might be more strict.
-The password must:
-1. Be 8 characters or longer (less than 127 characters)
+
+The password requirements are as follows:
+1. 8 characters in length or longer (less than 127 characters)
 2. Must contain a capital letter
 3. Must contain a lowercase letter
 4. Must contain a number or special character
