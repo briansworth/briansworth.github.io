@@ -78,7 +78,3 @@ function isAdministrator {
 ```
 
 Hopefully you find this to be a useful tool to keep in your inventory.
-
-*Thanks for reading,*
-
-PS> exit

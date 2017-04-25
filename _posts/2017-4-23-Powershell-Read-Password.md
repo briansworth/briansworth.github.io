@@ -179,7 +179,3 @@ If any of these conditions isn't met, an error will be written to the screen and
 
 <br>
 Hopefully you find this to be a useful tool to keep in your inventory.
-
-*Thanks for reading,*
-
-PS> exit

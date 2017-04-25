@@ -151,7 +151,3 @@ These values shouldn't be taken too seriously as they were measured once and not
 
 The copy/install times will vary from machine to machine.  My computer uses a consumer grade Western Digital Hard Drive (5400 rpm).  Running this on SSDs are faster HDD will result in much faster copy times.
 <br>
-
-*Thanks for reading,*
-
-PS> exit

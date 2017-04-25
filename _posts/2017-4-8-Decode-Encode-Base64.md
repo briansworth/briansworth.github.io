@@ -117,8 +117,3 @@ function ConvertFrom-EncodedString {
 ```
 You could make this much more versatile by adding support for more encoding options like ASCII, but this is a start ([I added this functionality here](http://codeandkeep.com/Decode-Encode-Base64-pt2/)).
 We will also be able to use these tools for future projects.
-
-<br>
-*Thanks for reading,*
-
-PS> exit

@@ -187,7 +187,3 @@ ReturnValue      : 2697
 -----
 
 I know there are plenty other return values; however, these were the codes that I encountered that were common enough to elaborate on.
-
-*Thanks for reading,*
-
-PS> exit

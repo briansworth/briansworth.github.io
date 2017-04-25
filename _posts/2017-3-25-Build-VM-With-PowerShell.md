@@ -124,8 +124,3 @@ vmconnect.exe localhost $vmName
 
 Depending on your VM Generation, you may have to press a button to tell the vm to install from the Dvd drive.
 There is much more that can be done, but this is a quick and easy way to get started with Hyper-V and PowerShell.
-
-
-*Thanks for reading,*
-
-PS> exit
