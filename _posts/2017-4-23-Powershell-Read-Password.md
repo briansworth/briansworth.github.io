@@ -21,7 +21,7 @@ $credential=Get-Credential
 <br>
 The `Get-Credential` cmdlet returns a PSCredential object.
 
-You may not know this but there is a method for this object type that will allow you to the stored password as plain text.
+You may not know this but there is a method for this object type that will allow you to extract the stored password as plain text.
 
 ```powershell
 $credential=Get-Credential
