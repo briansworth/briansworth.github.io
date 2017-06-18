@@ -7,22 +7,22 @@ title: PowerShell And Vim
   you probably know about Vim.
   For those of us that started and stay mostly in the realm of Windows however;
   Vim may be a foreign thing.
-  I have been fortunte enough to have been exposed to vim, and seen what it can do,
-  and now there's no turning back.
+  I was fortunte enough to be exposed to vim, and see what it can do;
+  now there's no turning back.
 </p> 
 
-### VI on the Command Line
+### Vi on the Command Line
 ----
 
 <p>
   There has been a module for PowerShell for a while now that allows you to use
-  a vi style editor on the command line.  Previously you would have had to
+  a vi editor on the command line.  Previously you would have had to
   copy the code from GitHub, but now - thanks to the PowerShell NuGet package manager -
   you can install it easily straight from PowerShell.
   Better yet, if you are on Windows 10, or server2016, it comes pre-installed.
 </p>
 <p>
-  You can check with one command.
+  You can check if you have it with one command.
 </p>
 
 ```powershell
@@ -31,6 +31,8 @@ Get-Module -Name PSReadline -ListAvailable
 <p>
   If you don't get any results then it's not installed.
 </p>
+
+
 If you have a version number 1.1 or prior, 
 then you will need to upgrade the version to 1.2 or higher:
 <br>
@@ -47,11 +49,27 @@ Find-Package -Name PSReadline
 # install it with -Force to overwrite the older version if you have it
 Install-Package -Name PSReadline -Force
 ```
-
 <p>
   If you haven't setup NuGet previously, you can follow the onscreen instructions
   to get it setup and configured.
 </p>
+
+#### If you don't have it
+----
+
+If you are on anything before win10 or server 2016, 
+you will need to some prep work:
+
+1. You need to have .Net 4.5 installed.
+  1. Download [here](https://www.microsoft.com/en-ca/download/details.aspx?id=30653)
+2. Minimum Windows Management Framework version 3 (WMF 3), but I recommend WMF 5.1.
+  2. [WMF3](https://www.microsoft.com/en-ca/download/details.aspx?id=34595),  [WMF5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616)
+3. You need the PackageManagement PowerShell module
+  3. Download [here](https://www.microsoft.com/en-us/download/details.aspx?id=51451)
+
+With these prerequisites installed, 
+you can follow the steps above to install PSReadline.
+
 <p>
   Now that you have that installed, you can setup your command line editor in vi mode:
 </p>
