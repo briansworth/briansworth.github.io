@@ -54,30 +54,31 @@ Install-Package -Name PSReadline -Force
   to get it setup and configured.
 </p>
 
-#### If you don't have it
-----
-
-If you are on anything before win10 or server 2016, 
-you will need to some prep work:
-
-1. You need to have .Net 4.5 installed.
-  1. Download [here](https://www.microsoft.com/en-ca/download/details.aspx?id=30653)
-2. Minimum Windows Management Framework version 3 (WMF 3), but I recommend WMF 5.1.
-  2. [WMF3](https://www.microsoft.com/en-ca/download/details.aspx?id=34595),  [WMF5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616)
-3. You need the PackageManagement PowerShell module
-  3. Download [here](https://www.microsoft.com/en-us/download/details.aspx?id=51451)
-
-With these prerequisites installed, 
-you can follow the steps above to install PSReadline.
-
 <p>
-  Now that you have that installed, you can setup your command line editor in vi mode:
+  Now that you have it, you can setup your command line editor in vi mode:
 </p>
 
 ```powershell
 Set-PSReadlineOption -EditMode vi -BellStyle None
 # I like to also add -BellStyle 'None' because I hate the bell sound
 ```
+
+#### If you don't have it
+----
+
+If you are on anything before win10 or server 2016, 
+you will need to some prep work:
+
+* You need to have .Net 4.5 installed.
+  * Download [here](https://www.microsoft.com/en-ca/download/details.aspx?id=30653)
+* Minimum Windows Management Framework version 3 (WMF 3), but I recommend WMF 5.1.
+  * [WMF3](https://www.microsoft.com/en-ca/download/details.aspx?id=34595),  [WMF5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616)
+* You need the PackageManagement PowerShell module
+  * Download [here](https://www.microsoft.com/en-us/download/details.aspx?id=51451)
+
+With these prerequisites installed, 
+you can follow the steps above to install PSReadline.
+
 
 <p>
   If you want this set by default you can add this to your profile 
