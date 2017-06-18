@@ -130,7 +130,7 @@ do `vi test.txt`.
 ### Customize your vimrc file
 -----
 <p>
-  There should be a a file named "`_vimrc" in your user directory.  
+  There should be a a file named "_vimrc" in your user directory.  
   If there isn't you can go ahead and create it.
 </p>
 
@@ -185,10 +185,8 @@ set noerrorbells visualbell t_vb=
   This is a start; hopefully you can build on this and improve on it.
 </p>
 
-<p>
 *SIDE NOTE:*
 If you want to write PowerShell code using Vim, I would recommend using VisualStudio Code.
 If has extensions for both PowerShell and Vim.
 The PowerShell extension allows for 'Intellisense' and syntax highlighting for PowerShell;
 and the Vim extension will allow you to use Vim shortcuts for editting your code.
-</p>
