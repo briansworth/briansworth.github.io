@@ -1,6 +1,6 @@
 ---
 layout: post
-title: PowerShell And Vim
+title: PowerShell and Vim
 ---
 <p>
   If you are familiar with Linux or come from a Unix background,
@@ -84,7 +84,7 @@ you will need to some prep work:
 With these prerequisites installed, 
 you can follow the steps above to install PSReadline.
 
-### VIM on Windows
+### Vim on Windows
 ----
 
 Now that you have your command line setup with vi, now you can setup the real thing.
