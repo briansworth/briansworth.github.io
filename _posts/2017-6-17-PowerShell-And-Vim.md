@@ -63,6 +63,11 @@ Set-PSReadlineOption -EditMode vi -BellStyle None
 # I like to also add -BellStyle 'None' because I hate the bell sound
 ```
 
+<p>
+  If you want this set by default you can add this to your profile 
+  so it loads automatically.
+</p>
+
 #### If you don't have it
 ----
 
@@ -79,20 +84,13 @@ you will need to some prep work:
 With these prerequisites installed, 
 you can follow the steps above to install PSReadline.
 
-
-<p>
-  If you want this set by default you can add this to your profile 
-  so it loads automatically.
-</p>
-
 ### VIM on Windows
 ----
 
-<p>
-  Now that you have your command line setup with vi, now you can setup the real thing.
-  You can download Vim for Windows [here](www.vim.org/download.php), or
-  with code (working at the time of writing this post):
-</p>
+Now that you have your command line setup with vi, now you can setup the real thing.
+You can download Vim for Windows [here](www.vim.org/download.php), or
+with code (working at the time of writing this post):
+
 ```powershell
 # This should download a file (gvim80-586.exe) to your Downloads folder
 Invoke-WebRequest -Uri https://ftp.nluug.nl/pub/vim/pc/gvim80-586.exe `
@@ -106,6 +104,8 @@ Invoke-WebRequest -Uri https://ftp.nluug.nl/pub/vim/pc/gvim80-586.exe `
 </p>
 
 #### Configure Vim for PowerShell
+----
+
 <p>
   By default, vim is installed here 'C:\Program Files (x86)\Vim'.
   The executable that you will want to run will be here: 
@@ -130,7 +130,7 @@ do `vi test.txt`.
 ### Customize your vimrc file
 -----
 <p>
-  There should be a a file named "vimrc" in your user directory.  
+  There should be a a file named "`_vimrc" in your user directory.  
   If there isn't you can go ahead and create it.
 </p>
 
@@ -183,4 +183,12 @@ set noerrorbells visualbell t_vb=
 
 <p>
   This is a start; hopefully you can build on this and improve on it.
+</p>
+
+<p>
+*SIDE NOTE:*
+If you want to write PowerShell code using Vim, I would recommend using VisualStudio Code.
+If has extensions for both PowerShell and Vim.
+The PowerShell extension allows for 'Intellisense' and syntax highlighting for PowerShell;
+and the Vim extension will allow you to use Vim shortcuts for editting your code.
 </p>
