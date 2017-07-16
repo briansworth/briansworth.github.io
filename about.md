@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-I'm Brian Farnsworth, a consultant at Hyper Technologies Inc. in Toronto, where I help organizations capitalize on what's possible from a DevOps perspective. I got started with PowerShell, and fell in love with code, so I thought I'd share some of my experiences on this blog.  My beliefs are simple, I strive to simplify the technically complex, always think outside the box, and automate everything.
+I'm Brian Farnsworth, an IT professional in Toronto. I got started with PowerShell, and fell in love with code, so I thought I'd share some of my experiences on this blog.  My beliefs are simple, I strive to simplify the technically complex, always think outside the box, and automate everything.
 
 ### More Information
 This blog is intended to help anyone like myself who has a passion for scripting and automation.  Above all, I use this blog to document my effort, what works and what doesn't work.
