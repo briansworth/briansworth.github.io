@@ -11,7 +11,8 @@ title: Building an Exchange 2016 Lab on Server 2016
   and document with code.
 </p>
 
-### The plan
+### The Plan
+----
 I will be building 2 VMs on Hyper-V:
 * 1 Domain Controller - Server core 2016
 * 1 Exchange Server - Server 2016 (with GUI)
