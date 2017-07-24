@@ -286,7 +286,7 @@ the Exchange setup can finally begin.
 # Initialize and create new volume using added vhd file when creating vm
 Initialize-Disk -Number 1 -PartitionStyle mbr -PassThru | 
   New-Partition -UseMaximumSize -DriveLetter M | 
-    Format-Volume -FileSystem NTFS -NewFileSystemLabel MXDB1
+    Format-Volume -FileSystem NTFS -NewFileSystemLabel MXDB01
     
 [String]$fileName='ExchangeServer2016-x64-cu4.iso'
 $vol=Mount-DiskImage -ImagePath "$HOME\Downloads\$fileName" -PassThru | Get-Volume
