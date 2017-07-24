@@ -168,10 +168,10 @@ Rename-Computer -NewName exEX1 -Restart
 
 After reboot, join the domain from above:
 ```powershell
-[String]$exIP='10.10.0.6'
+[String]$exIP='10.0.0.6'
 
-[String]$dcIP='10.10.0.5'
-[String]$gateway='10.10.0.1'
+[String]$dcIP='10.0.0.5'
+[String]$gateway='10.0.0.1'
 
 [PSObject]$netAdapter=Get-NetAdapter -Name 'Ethernet*'
  $netAdapter | New-NetIPAddress -IPAddress $exIP `
