@@ -12,7 +12,7 @@ title: Get List of Installed Applications
 ### Common ways of listing applications
 -----
 
-#### Win32Product
+#### Win32_Product
 <p>
   The most common method that I have seen is a simple WMI query to the
   Win32 Product class.
@@ -29,7 +29,7 @@ gwmi Win32_Product
   Anything installed by another method (like exe) will not show up here.
 </p>
 
-#### Win32RegAddRemoveProduct
+#### Win32Reg_AddRemoveProduct
 This class is much better than the above; but,
 it will **only exist if your machine or the target machine has
 an SCCM/SMS client installed on it.**<br>
