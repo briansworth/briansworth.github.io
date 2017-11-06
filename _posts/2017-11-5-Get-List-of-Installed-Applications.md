@@ -18,12 +18,8 @@ title: Get List of Installed Applications
   Win32 Product class.
 </p>
 
-<pre>
-  <code class="codeblock">
-    gwmi Win32_Product
-  </code>
-</pre>
-
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">gwmi </span>Win32Reg_AddRemovePrograms
+</code></pre></div></div>
 
 <p>
   The first thing you will notice about this method, 
