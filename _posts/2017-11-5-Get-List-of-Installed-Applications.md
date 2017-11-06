@@ -19,7 +19,7 @@ title: Get List of Installed Applications
 </p>
 
 <pre>
-  <code class="powershell">
+  <code class="codeblock">
     gwmi Win32_Product
   </code>
 </pre>
