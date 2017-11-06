@@ -19,7 +19,7 @@ title: Get List of Installed Applications
 </p>
 
 <div class="language-powershell highlighter-rouge">
-  <div class="highlight"><pre><code><span class="nb">gwmi</span>Win32Reg_AddRemovePrograms</code></pre></div>
+  <div class="highlight"><pre><code><span class="nb">gwmi </span>Win32_Product</code></pre></div>
 </div>
 
 <p>
@@ -36,9 +36,9 @@ an SCCM/SMS client installed on it.**<br>
 This class is much faster at retrieve this info, 
 although I have not used it very much because of this prerequisite.
 
-```powershell
-gwmi Win32Reg_AddRemovePrograms
-```
+<div class="language-powershell highlighter-rouge">
+  <div class="highlight"><pre><code><span class="nb">gwmi </span>Win32Reg_AddRemovePrograms</code></pre></div>
+</div>
 
 ------
 <p>
