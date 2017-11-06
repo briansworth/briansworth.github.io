@@ -19,13 +19,7 @@ title: Get List of Installed Applications
 </p>
 
 <div class="language-powershell highlighter-rouge">
-  <div class="highlight">
-    <pre>
-      <code>
-        <span class="nb">gwmi </span>Win32Reg_AddRemovePrograms
-      </code>
-    </pre>
-  </div>
+  <div class="highlight"><pre><code><span class="nb">gwmi</span>Win32Reg_AddRemovePrograms</code></pre></div>
 </div>
 
 <p>
