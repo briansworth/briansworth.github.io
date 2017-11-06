@@ -18,9 +18,12 @@ title: Get List of Installed Applications
   Win32 Product class.
 </p>
 
-```
-gwmi Win32_Product
-```
+<pre>
+  <code class="powershell">
+    gwmi Win32_Product
+  </code>
+</pre>
+
 
 <p>
   The first thing you will notice about this method, 
