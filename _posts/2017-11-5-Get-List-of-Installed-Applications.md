@@ -18,7 +18,7 @@ title: Get List of Installed Applications
   Win32 Product class.
 </p>
 
-```powershell
+```
 gwmi Win32_Product
 ```
 
