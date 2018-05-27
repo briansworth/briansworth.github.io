@@ -17,11 +17,9 @@ title: Get List of Installed Applications
   The most common method that I have seen is a simple WMI query to the
   Win32 Product class.
 </p>
-
-<div class="language-powershell highlighter-rouge">
-  <div class="highlight"><pre><code><span class="nb">gwmi</span>Win32Reg_AddRemovePrograms</code></pre></div>
-</div>
-
+```powershell
+  gwmi Win32_Product
+```
 <p>
   The first thing you will notice about this method, 
   is that it takes a very long time to populate the list.
