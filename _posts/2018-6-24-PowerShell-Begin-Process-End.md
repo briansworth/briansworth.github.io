@@ -40,12 +40,15 @@ This useless function will add a number you choose to 1.
 It is all well and good when piping 1 value,
 but you run into a weird problem when using multiple values.
 </p>
-![_config.yml]({{ site.basurl }}/images/Test-NoBPE1.png) 
+![_config.yml]({{ site.basurl }}/images/Test-NoBPE2.png) 
 
 <br>
 Only the last piped value gets passed through properly.
 All prior values are lost.
 <br>
+
+----
+
 ### The Solution: Begin, Process, End
 <p></p>
 ```powershell
@@ -77,6 +80,8 @@ Process will iterate over all the input values.
 We can utilize the Begin and End blocks for setup and cleanup (in that order),
 or for other use cases.
 </p>
+
+----
 
 #### Example
 ```powershell
@@ -116,6 +121,8 @@ it is better to write output as it is generated.
 This will allow the output to be fed through the pipeline as it goes, 
 instead accumulating all the data and sending it over in one shot.
 </p>
+
+----
 
 #### A More Practical Example
 ```powershell
