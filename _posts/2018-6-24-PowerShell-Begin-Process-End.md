@@ -1,6 +1,6 @@
 ---
 layout: post
-title: PowerShell: Begin Process End
+title: PowerShell - Begin Process End
 ---
 <p>
 If you look for or have used PowerShell scripts from the internet, you have likely encountered functions with the Begin, Process, and End blocks.
@@ -15,9 +15,8 @@ If you want to use the pipeline in PowerShell (and why wouldn't you); then you s
 </p>
 <br>
 
-### No Begin, Process, End
-<br>
-This useless function will add a number you choose to 1.
+### In the beginning, there was no Process or End
+<p></p>
 ```powershell
 Function Test-NoBPE {
   Param(
@@ -30,6 +29,7 @@ Function Test-NoBPE {
 ```
 *NOTE:* In the Param block, I have set the add param to accept it's value from the pipeline.
 <br>
+This useless function will add a number you choose to 1.
 ![_config.yml]({{ site.basurl }}/images/Test-NoBPE1.png) 
 
 ### The Problem
@@ -40,10 +40,11 @@ but you run into a weird problem when using multiple values.
 ![_config.yml]({{ site.basurl }}/images/Test-NoBPE1.png) 
 
 <br>
-### The Solution: Begin, Process, End
+For some reason, only the last piped value gets passed through properly.
 <br>
+### The Solution: Begin, Process, End
+<p></p>
 ```powershell
-# Test for illustrating Begin Process End <BPE>
 Function Test-BPE {
   Param(
     [Parameter(Position=0,ValueFromPipeline=$true)]
@@ -63,12 +64,12 @@ Function Test-BPE {
 ```
 *NOTE:* Again, ValueFromPipeine is true, allowing the add param to get input from the pipeline.
 <br>
-![_config.yml]({{ site.basurl }}/images/Test-BPE1.png) 
 ![_config.yml]({{ site.basurl }}/images/Test-BPE2.png) 
-<br>
 <p>
 Much better.
 As you can see, the Process block is acting more-or-less like a Foreach loop.
+Begin runs once, and End runs once.  
+Process will iterate over all the input values.
 We can utilize the Begin and End blocks for setup and cleanup (in that order),
 or for other use cases.
 </p>
