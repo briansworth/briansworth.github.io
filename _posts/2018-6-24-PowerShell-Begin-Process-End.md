@@ -81,8 +81,6 @@ We can utilize the Begin and End blocks for setup and cleanup (in that order),
 or for other use cases.
 </p>
 
-----
-
 #### Example
 ```powershell
 Function Test-BPE2 {
@@ -124,7 +122,7 @@ instead accumulating all the data and sending it over in one shot.
 
 ----
 
-#### A More Practical Example
+### A More Practical Example
 ```powershell
 Function Get-LDAPUser {
   Param(
