@@ -15,7 +15,7 @@ If you want to use the pipeline in PowerShell (and why wouldn't you); then you s
 </p>
 <br>
 
-### In the beginning, there was no Process or End
+### In the Beginning, there was no Process or End
 <p></p>
 ```powershell
 Function Test-NoBPE {
@@ -27,10 +27,12 @@ Function Test-NoBPE {
   Write-Output (1+$add)
 }
 ```
-*NOTE:* In the Param block, I have set the add param to accept it's value from the pipeline.
+*NOTE: In the Param block, I have set the add param to accept it's value from the pipeline.*
 <br>
 This useless function will add a number you choose to 1.
+<br>
 ![_config.yml]({{ site.basurl }}/images/Test-NoBPE1.png) 
+----
 
 ### The Problem
 <p>
@@ -40,7 +42,8 @@ but you run into a weird problem when using multiple values.
 ![_config.yml]({{ site.basurl }}/images/Test-NoBPE1.png) 
 
 <br>
-For some reason, only the last piped value gets passed through properly.
+Only the last piped value gets passed through properly.
+All prior values are lost.
 <br>
 ### The Solution: Begin, Process, End
 <p></p>
@@ -62,7 +65,7 @@ Function Test-BPE {
   }
 }
 ```
-*NOTE:* Again, ValueFromPipeine is true, allowing the add param to get input from the pipeline.
+*NOTE: Again, ValueFromPipeine is true, allowing the add param to get input from the pipeline.*
 <br>
 ![_config.yml]({{ site.basurl }}/images/Test-BPE2.png) 
 <p>
