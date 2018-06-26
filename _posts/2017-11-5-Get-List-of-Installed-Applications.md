@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Get List of Installed Applications
+title: PowerShell - Get List of Installed Applications
 ---
 
 <p>
   Getting a list of installed applications seems like something 
   a lot of Windows admins would like to do.<br>
-  Unfortuneately, there isn't an Out-of-the-Box way to do this with PowerShell.
+  Unfortunately, there isn't an Out-of-the-Box way to do this with PowerShell.
 </p>
 
 ### Common ways of listing applications
