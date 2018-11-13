@@ -6,10 +6,11 @@ title: PowerShell - ActiveDirectory and Exchange
 <p>
 ActiveDirectory is of course a huge component in a Microsoft based environment.
 One of my favorite things to do is explore how other Microsoft products,
-integrate or leverage Active Directory.
+integrate and leverage Active Directory.
 </p>
 
 ### Active Directory Basics
+----
 <p>
 First things first, we need to get some info about the ActiveDirectory configuration. 
 We should take a look at the RootDSE so we can determine the common naming contexts to use. 
@@ -25,7 +26,7 @@ For now we are interested in the Configuration Naming Context.
 You can get that like so:
 </p>
 ```powershell
-$adConfigRoot=$rootDse.Properties['configurationNamingContext'].Value
+$cfgCtx=$rootDse.Properties['configurationNamingContext'].Value
 Write-Output $adConfigRoot
 ```
 <p>
@@ -43,6 +44,7 @@ $cfgCtx=$rootDse.ConfigurationNamingContext
 ```
 
 ### List Exchange Servers
+----
 <p>
 To make make our lives easier, I will be assuming you have the AD Module available for this part. 
 </p>
