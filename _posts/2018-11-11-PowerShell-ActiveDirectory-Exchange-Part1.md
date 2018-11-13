@@ -327,15 +327,21 @@ Function Connect-ExchangeServer {
         $snParameters.Add('Credential',$adParameters.Credential)
       }
       foreach($exServer in $exchServers){
-        Write-Verbose "Testing WinRm: $($exServer.DnsHostName)"
-        $winrm=Test-WSMan @winrmParameters `
-          -ComputerName $exServer.DnsHostName
-        if($winrm){
-          Write-Verbose "Connecting to: $($exServer.DnsHostName)"
-          $exSn=New-PSSession @snParameters `
-            -ConnectionUri "http://$($exServer.DnsHostName)/powershell"
+        Try{
+          Write-Verbose "Testing WinRm: $($exServer.DnsHostName)"
+          $winrm=Test-WSMan @winrmParameters `
+            -ComputerName $exServer.DnsHostName
+          if($winrm){
+            Write-Verbose "Connecting to: $($exServer.DnsHostName)"
+            $exSn=New-PSSession @snParameters `
+              -ConnectionUri "http://$($exServer.DnsHostName)/powershell"
+          }
+          return $exSn
+        }Catch{
+          $errMsg="Server: $($exServer.DnsHostName)] $($_.Exception.Message)"
+          Write-Error -Message $errMsg
+          continue
         }
-        return $exSn
       }
     }Catch{
       Write-Error $_
