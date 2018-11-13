@@ -138,7 +138,8 @@ Function Get-ADExchangeServer {
 Of course if you connect to the Exchange Management Shell, 
 you can run Get-ExchangeServer which will give more information. 
 If you wanted to attempt connecting to any Exchange server, 
-try the next if that one fails, you could leverage this function to do just that.
+ang going to the next one if that fails, and so on; 
+you could leverage this function to do that.
 </p>
 
 ```powershell
@@ -164,6 +165,9 @@ Function Connect-ExchangeServer {
 ```
 <p>
 Quick and dirty but it should work. 
+
+### Make it Better
+----
 I can't help myself, so I will need to make this better by adding support for 
 credentials, and specifying a target server / domain for the AD Queries. 
 Also it would be nice for the function to allow manually specifying a server 
@@ -337,3 +341,8 @@ Function Connect-ExchangeServer {
   End{}
 }
 ```
+<p>
+A whole lot more code, and a bit more functionality. 
+I was hoping to get into more Exchange / AD related tasks in this post, 
+but it got away from me.  Maybe there will be a part 2.
+</p>
