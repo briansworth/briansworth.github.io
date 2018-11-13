@@ -1,6 +1,6 @@
 ---
 layout: post
-title: PowerShell - ActiveDirectory and Exchange
+title: PowerShell - ActiveDirectory and Exchange Servers
 ---
 
 <p>
@@ -27,7 +27,7 @@ You can get that like so:
 </p>
 ```powershell
 $cfgCtx=$rootDse.Properties['configurationNamingContext'].Value
-Write-Output $adConfigRoot
+Write-Output $cfgCtx
 ```
 <p>
 You could of course specify this without all this effort. 
@@ -138,7 +138,7 @@ Function Get-ADExchangeServer {
 Of course if you connect to the Exchange Management Shell, 
 you can run Get-ExchangeServer which will give more information. 
 If you wanted to attempt connecting to any Exchange server, 
-ang going to the next one if that fails, and so on; 
+and going to the next one if that fails, and so on; 
 you could leverage this function to do that.
 </p>
 
