@@ -165,9 +165,12 @@ Function Connect-ExchangeServer {
 ```
 <p>
 Quick and dirty but it should work. 
+</p>
+<br>
 
 ### Make it Better
 ----
+<p>
 I can't help myself, so I will need to make this better by adding support for 
 credentials, and specifying a target server / domain for the AD Queries. 
 Also it would be nice for the function to allow manually specifying a server 
