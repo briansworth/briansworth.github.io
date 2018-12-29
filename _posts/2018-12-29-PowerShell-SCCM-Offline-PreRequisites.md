@@ -67,7 +67,7 @@ title: PowerShell - Automate SCCM PreReq Downloads
 <p>
   I would recommend copying all the code below, 
   pasting it into a text editor, 
-  then saving it as a ps1 file (SccmPreReqDl.psq for example).
+  then saving it as a ps1 file (SccmPreReqDl.ps1 for example).
 </p>
 *NOTE: There will be some examples below the code here*
 ```powershell
