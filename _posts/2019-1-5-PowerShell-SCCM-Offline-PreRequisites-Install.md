@@ -343,6 +343,7 @@ SccmPreReqInstall.ps1 -prereqSourcePath C:\temp\sccm -restart -Verbose
 </p>
 <p>
   When you get to running the SCCM installer, 
-  just remember to choose the 'prereq' folder when you get to the 
+  just remember to choose the 'prereq' folder 
+  (in the prereq source path) when you get to the 
   Prerequisite Downloads step.
 </p>
