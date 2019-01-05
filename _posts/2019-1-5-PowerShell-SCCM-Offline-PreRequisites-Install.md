@@ -39,7 +39,6 @@ about setting up SCCM on a server disconnected from the internet.
   feature installed. 
   The script will skip this feature if you have not specified that parameter.
 </p>
-</br>
 
 ### The Script
 ----
@@ -314,7 +313,6 @@ SccmPreReqInstall.ps1 -prereqSourcePath . -windowsMediaSourcePath D:\sources\sxs
   Windows installer ISO prior to running the script.
 </p>
 
-</br>
 
 #### Example 2
 ```powershell
@@ -342,4 +340,9 @@ SccmPreReqInstall.ps1 -prereqSourcePath C:\temp\sccm -restart -Verbose
   You will still need to create the System Management container in AD, 
   and setup the permissions on that container.  
   Then lastly, extend the schema. 
+</p>
+<p>
+  When you get to running the SCCM installer, 
+  just remember to choose the 'prereq' folder when you get to the 
+  Prerequisite Downloads step.
 </p>
