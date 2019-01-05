@@ -219,10 +219,11 @@ Try{
 
 ### What now
 ----
-<p>
-  I will be writing a Part 2 to this post that can handle the install.  
-  See below if you want to do it yourself.
-</p>
+
+I will be writing a 
+[Part 2](http://codeandkeep.com/PowerShell-SCCM-Offline-PreRequisites/)
+to this post that can handle the install.  
+See below if you want to do it yourself.
 <p>
   In short; you just need to copy the folder over to the SCCM server. 
   Once there, you can run the adksetup.exe file from the adk folder. 
