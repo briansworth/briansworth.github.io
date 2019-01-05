@@ -61,7 +61,7 @@ Param(
   [String]$windowsMediaSourcePath,
 
   [Parameter(Position=2)]
-  [switch]$restart=$false
+  [switch]$restart
 )
 
 Function isAdministrator {
