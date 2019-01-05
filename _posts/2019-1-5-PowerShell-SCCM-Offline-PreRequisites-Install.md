@@ -4,7 +4,7 @@ title: PowerShell - Automate SCCM PreReq Install
 ---
 
 This is a part 2 to my original 
-([post](http://codeandkeep.com/PowerShell-SCCM-Offline-PreRequisites/)
+[post](http://codeandkeep.com/PowerShell-SCCM-Offline-PreRequisites/)
 about setting up SCCM on a server disconnected from the internet. 
 
 <p>
