@@ -15,6 +15,7 @@ http://codeandkeep.com/PowerShell-SCCM-Offline-PreRequisites-Install/).
   The executable in the Sccm installation media (ExtADSch.exe) does the job 
   perfectly and quickly. 
 </p>
+
 <p>
   Just as in my previous Sccm prereq posts, 
   I will be writing a full script for the process. 
