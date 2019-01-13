@@ -477,7 +477,7 @@ $sccmDomainCred=Get-Credential
 ```powershell
 $sccmDomain='CodeAndKeep.com'
 $cred=Get-Credential
-.\SccmADPrereq.ps1 -computerName cm1 -sccmDomainController $sccmDomain -containerDomainCredential $Cred -Verbose
+.\SccmADPrereq.ps1 -computerName cm1 -sccmDomainController $sccmDomain -containerDomainCredential $cred -Verbose
 ```
 
 <p>
