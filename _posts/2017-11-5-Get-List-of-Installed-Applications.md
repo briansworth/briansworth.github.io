@@ -1,12 +1,12 @@
 ---
 layout: post
-title: PowerShell - Get List of Installed Applications
+title: Get List of Installed Applications
 ---
 
 <p>
   Getting a list of installed applications seems like something 
   a lot of Windows admins would like to do.<br>
-  Unfortunately, there isn't an Out-of-the-Box way to do this with PowerShell.
+  Unfortuneately, there isn't an Out-of-the-Box way to do this with PowerShell.
 </p>
 
 ### Common ways of listing applications
@@ -15,11 +15,13 @@ title: PowerShell - Get List of Installed Applications
 #### Win32_Product
 <p>
   The most common method that I have seen is a simple WMI query to the
-  Win32 Product class.
+  Win_Product class.
 </p>
+
 ```powershell
-  gwmi Win32_Product
+gwmi Win32_Product
 ```
+
 <p>
   The first thing you will notice about this method, 
   is that it takes a very long time to populate the list.
