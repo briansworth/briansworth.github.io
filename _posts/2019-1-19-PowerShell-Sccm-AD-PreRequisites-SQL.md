@@ -241,7 +241,7 @@ configuration SccmSqlInstallation {
       AgtSvcAccount = $agentSvcCredential;
       SQLSysAdminAccounts = $sysAdminAccounts;
       SQLSvcAccount = $sqlSvcCredential;
-      SQLCollation = 'Latin1_General_CI_AS';
+      SQLCollation = 'Latin1_General_CP1_CI_AS';
       DependsOn = '[WindowsFeature]NetFramework';
     }
 
