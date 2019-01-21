@@ -215,7 +215,7 @@ configuration SccmSqlInstallation {
     [String]$sharedDir="$ENV:ProgramFiles\Microsoft SQL Server",
 
     [Parameter(Position=10)]
-    [String]$sharedWOWDir="${ENV:ProgramFiles(x86)}\Program Files (x86)\Microsoft SQL Server",
+    [String]$sharedWOWDir="${ENV:ProgramFiles(x86)}\Microsoft SQL Server",
 
     [Parameter(Position=11)]
     [ValidateRange(1,65535)]
