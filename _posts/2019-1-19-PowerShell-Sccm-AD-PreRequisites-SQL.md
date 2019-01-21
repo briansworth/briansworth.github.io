@@ -215,7 +215,11 @@ configuration SccmSqlInstallation {
     [String]$sharedDir="$ENV:ProgramFiles\Microsoft SQL Server",
 
     [Parameter(Position=10)]
-    [String]$sharedWOWDir="${ENV:ProgramFiles(x86)}\Program Files (x86)\Microsoft SQL Server"
+    [String]$sharedWOWDir="${ENV:ProgramFiles(x86)}\Program Files (x86)\Microsoft SQL Server",
+
+    [Parameter(Position=11)]
+    [ValidateRange(1,65535)]
+    [int]$sqlPortNumber=1433
   )
   Import-DscResource -ModuleName SqlServerDsc
   Import-DscResource -ModuleName PSDesiredStateConfiguration
@@ -243,6 +247,14 @@ configuration SccmSqlInstallation {
       SQLSvcAccount = $sqlSvcCredential;
       SQLCollation = 'SQL_Latin1_General_CP1_CI_AS';
       DependsOn = '[WindowsFeature]NetFramework';
+    }
+
+    SqlServerNetwork 'SqlStaticTcp' {
+      InstanceName = $sqlInstanceName;
+      ProtocolName = 'TCP';
+      IsEnabled = $true;
+      TcpPort = "$sqlPortNumber";
+      DependsOn = '[SqlSetup]SqlInstall';
     }
 
     # This part can be removed 
