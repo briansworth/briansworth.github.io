@@ -58,10 +58,7 @@ Param(
 
   [Parameter(Position=1)]
   [ValidateScript({Test-Path -Path $_})]
-  [String]$windowsMediaSourcePath,
-
-  [Parameter(Position=2)]
-  [switch]$restart
+  [String]$windowsMediaSourcePath
 )
 
 Function isAdministrator {
@@ -71,6 +68,38 @@ Function isAdministrator {
   $adminRole=[Security.Principal.WindowsBuiltInRole]::Administrator
 
   return $principal.IsInRole($adminRole)
+}
+
+Function GetADKInstalledFeatures {
+  [CmdletBinding()]
+  Param()
+
+  $kitsRegPath='HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows Kits'
+
+  Try{
+    $winKitsInstall=Test-Path -Path $kitsRegpath
+    if(!$winKitsInstall){
+      Write-Error "[$kitsRegPath] does not exist. ADK not installed." `
+        -ErrorAction Stop
+    }
+    $installRoots=Get-ChildItem -Path "$kitsRegPath\Installed Roots" `
+      -ErrorAction Stop
+
+    if(!$installRoots){
+      Write-Error "Install Roots key not found.  ADK features not installed." `
+        -ErrorAction Stop
+    }
+    $installOptPath="$($installRoots[0].PSPath)\Installed Options"
+    $installOpt=Get-Item -Path $installOptPath -ErrorAction Stop
+    
+    $installOptHash=New-Object -TypeName hashtable
+    foreach($option in $installOpt.Property){
+      $installOptHash.Add($option,$installOpt.GetValue($option))
+    }
+    Write-Output $installOptHash
+  }Catch{
+    Write-Error $_
+  }
 }
 
 Function WaitForProcessEnd {
@@ -155,31 +184,50 @@ Try{
 
 
   ### ADK and WinPE Addon Validation
-  Write-Verbose "Validating ADK files"
+  Write-Verbose "Validating ADK Status"
 
-  $adk=Get-Item -Path "$adkPath\adksetup.exe" -ErrorAction Stop
-  [version]$adkVersion=$adk.VersionInfo.FileVersion
+  $adkMandatoryFeatureList=@(
+    'OptionId.DeploymentTools',
+    'OptionId.UserStateMigrationTool',
+    'OptionId.WindowsPreinstallationEnvironment'
+  )
+  $requiredAdkFeatureList=New-Object -TypeName Collections.ArrayList
 
-  if($adkVersion -ge $adkVersionNoPE){
-    $peAddonRequired=$true
-
-    if(!$peAddonPresent){
-      $emsg=[String]::Format(
-        "Your version of ADK requires a WinPE Addon. {0}. {1}.",
-        "The addon is not present",
-        "Unable to install ADK"
-      )
-      Write-Error $emsg -ErrorAction Stop
+  $adkInstallHash=GetADKInstalledFeatures -ErrorAction SilentlyContinue
+  foreach($feature in $adkMandatoryFeatureList){
+    if($adkInstallHash.$feature -ne 1){
+      Write-Verbose "[$feature] required"
+      [void]$requiredAdkFeatureList.Add($feature)
     }
-    $adkPeSetupFile=Test-Path -Path "$adkPePath\adkwinpesetup.exe"
-    if(!$adkPeSetupFile){
-      $emsg=[String]::Format(
-        "Your version of ADK requires a WinPE Addon. {0}. {1}.",
-        "The adkwinpesetup.exe file is not present",
-        "Unable to install ADK"
-      )
-      Write-Error $emsg -ErrorAction Stop
+  }
+  if($requiredAdkFeatureList){
+    Write-Verbose "ADK features missing... Validating ADKSetup files"
+    $adk=Get-Item -Path "$adkPath\adksetup.exe" -ErrorAction Stop
+    [version]$adkVersion=$adk.VersionInfo.FileVersion
+
+    if($adkVersion -ge $adkVersionNoPE){
+      $peAddonRequired=$true
+
+      if(!$peAddonPresent){
+        $emsg=[String]::Format(
+          "Your version of ADK requires a WinPE Addon. {0}. {1}.",
+          "The addon is not present",
+          "Unable to install ADK"
+        )
+        Write-Error $emsg -ErrorAction Stop
+      }
+      $adkPeSetupFile=Test-Path -Path "$adkPePath\adkwinpesetup.exe"
+      if(!$adkPeSetupFile){
+        $emsg=[String]::Format(
+          "Your version of ADK requires a WinPE Addon. {0}. {1}.",
+          "The adkwinpesetup.exe file is not present",
+          "Unable to install ADK"
+        )
+        Write-Error $emsg -ErrorAction Stop
+      }
     }
+  }else{
+    Write-Verbose "All mandatory ADK features present"
   }
   ### END of ADK and WinPE Addon Validation
 
@@ -264,34 +312,33 @@ Try{
   Install-WindowsFeature -Name $winFeatureList -ErrorAction Stop
 
 
-  $winPeFeature="OptionId.WindowsPreinstallationEnvironment"
-  $defaultADKFeatures=@(
-    "OptionId.DeploymentTools",
-    "OptionId.UserStateMigrationTool"
-  )
-  if(!$peAddonRequired){
-    $defaultADKFeatures+=$winPeFeature
+  if(!$requiredAdkFeatureList){
+    Write-Verbose "ADK Install not required"
+    return
   }
 
-  $adkFeature=$($defaultADKFeatures -join ' ')
-  & "$adkPath\adksetup.exe" /ceip off /features $adkFeature /quiet
+  $winPeFeature='OptionId.WindowsPreinstallationEnvironment'
 
-  WaitForProcessEnd -processName adksetup `
-    -msg "Installing ADK"
+  if(!($requiredAdkFeatureList.Contains($winPeFeature))){
+    $peAddonRequired=$false
+  }
 
+  if($peAddonRequired){
+    $requiredAdkFeatureList.Remove($winPeFeature)
+  }
+
+  if($requiredAdkFeatureList){
+    $adkFeature=$($requiredAdkFeatureList -join ' ')
+    & "$adkPath\adksetup.exe" /ceip off /features $adkFeature /quiet
+
+    WaitForProcessEnd -processName adksetup `
+      -msg "Installing ADK"
+  }
   if($peAddonRequired){
     & "$adkPePath\adkwinpesetup.exe" /features $winPeFeature /quiet
 
-    WaitForProcessEnd -processName adksetup `
+    WaitForProcessEnd -processName adkwinpesetup `
       -msg "Installing ADK PE Addon"
-  }
-
-  if($restart){
-    for($i=10;$i -ge 0;$i--){
-      Write-Warning "Your computer will restart in $i seconds"
-      Start-Sleep -Seconds 1
-    }
-    Restart-Computer -ErrorAction Stop
   }
 }Catch{
   Write-Error $_
@@ -334,13 +381,13 @@ SccmPreReqInstall.ps1 -prereqSourcePath C:\temp\sccm -restart -Verbose
 ### What is Left
 ----
 
-<p>
-  The last bit of setup that is still needed for the SCCM install, 
-  is the Active Directory portion.
-  You will still need to create the System Management container in AD, 
-  and setup the permissions on that container.  
-  Then lastly, extend the schema. 
-</p>
+The last bit of setup that is still needed for the SCCM install, 
+is the Active Directory portion.
+You will still need to create the System Management container in AD, 
+and setup the permissions on that container. 
+I have made a post / script to do exactly this 
+[here](http://codeandkeep.com/PowerShell-Sccm-AD-PreRequisites/)
+Then lastly, extend the schema. 
 <p>
   When you get to running the SCCM installer, 
   just remember to choose the 'prereq' folder 
