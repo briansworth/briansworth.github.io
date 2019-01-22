@@ -363,7 +363,7 @@ SccmPreReqInstall.ps1 -prereqSourcePath . -windowsMediaSourcePath D:\sources\sxs
 
 #### Example 2
 ```powershell
-SccmPreReqInstall.ps1 -prereqSourcePath C:\temp\sccm -restart -Verbose
+SccmPreReqInstall.ps1 -prereqSourcePath C:\temp\sccm -Verbose
 ```
 
 <p>
@@ -373,9 +373,6 @@ SccmPreReqInstall.ps1 -prereqSourcePath C:\temp\sccm -restart -Verbose
   the script will not install .Net Framework 3.5, 
   but it will notify us if it is not installed 
   so we can manually install it later. 
-  The -restart switch will restart the computer after completing the install. 
-  The script will give a 10 second countdown 
-  so you can abort with Ctrl + C as required.
 </p>
 
 ### What is Left
