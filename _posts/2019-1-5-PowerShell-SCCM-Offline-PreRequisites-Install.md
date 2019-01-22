@@ -383,8 +383,8 @@ is the Active Directory portion.
 You will still need to create the System Management container in AD, 
 and setup the permissions on that container. 
 I have made a post / script to do exactly this 
-[here](http://codeandkeep.com/PowerShell-Sccm-AD-PreRequisites/)
-Then lastly, extend the schema. 
+[here](http://codeandkeep.com/PowerShell-Sccm-AD-PreRequisites/). 
+Lastly, you will need to extend the schema. 
 <p>
   When you get to running the SCCM installer, 
   just remember to choose the 'prereq' folder 
