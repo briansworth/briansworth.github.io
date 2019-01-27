@@ -1,6 +1,6 @@
 ---
 layout: post
-title: PowerShell - Automate Sccm Primary Site Install
+title: PowerShell - Sccm Primary Site Install
 ---
 
 <p>
