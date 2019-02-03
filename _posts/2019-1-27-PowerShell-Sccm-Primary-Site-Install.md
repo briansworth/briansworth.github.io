@@ -11,7 +11,7 @@ This is a continuation of automating Sccm prerequisites:
 - [Part 1](http://codeandkeep.com/PowerShell-SCCM-Offline-PreRequisites/)
 - [Part 2]( http://codeandkeep.com/PowerShell-SCCM-Offline-PreRequisites-Install/)
 - [Part 3](http://codeandkeep.com/PowerShell-Sccm-AD-PreRequisites/)
-- [Part 4](http://codeandkeep.com/PowerShell-Sccm-AD-PreRequisites-SQL/)
+- [Part 4](http://codeandkeep.com/PowerShell-Sccm-PreRequisites-SQL/)
 
 <p>
   In this post, the final step.  
