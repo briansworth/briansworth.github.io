@@ -9,7 +9,7 @@ I think an example bringing everything together is useful.
 <style>
 table {
   border-collapse: collapse;
-  width: 50%;
+  width: 350px;
 }
 
 td, th {
