@@ -229,7 +229,7 @@ configuration LocalUserSetup {
   )
   Import-DscResource -ModuleName PSDesiredStateConfiguration
 
-  Node localhost {
+  Node $ENV:COMPUTERNAME {
     User 'NewLocalUser' {
       UserName = $UserName;
       Password = $Password;
