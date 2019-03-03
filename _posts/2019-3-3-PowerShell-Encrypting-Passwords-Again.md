@@ -117,7 +117,7 @@ Function ConvertTo-EncryptedString {
     [Security.SecureString]$SecureString,
 
     [ValidateCount(16,32)]
-    [Parameter(Position=1,Mandatory=$true,ValueFromPipeline=$true)]
+    [Parameter(Position=1,Mandatory=$true)]
     [Byte[]]$Key
   )
   Begin{}
