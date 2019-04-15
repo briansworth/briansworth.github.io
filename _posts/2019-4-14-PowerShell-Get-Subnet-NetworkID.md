@@ -388,3 +388,52 @@ Function Get-IPv4Subnet {
   End{}
 }
 ```
+
+#### Example Script
+----
+
+<p>
+  Now a quick example of a script to get NIC configuration information 
+  on a computer using this function:
+</p>
+
+```powershell
+$nics=[Net.NetworkInformation.NetworkInterface]::GetAllNetworkInterfaces()
+
+foreach($interface in $nics){
+  if($interface.NetworkInterfaceType -eq 'Loopback'){
+    continue
+  }
+  if(!($interface.Supports('IPv4'))){
+    continue
+  }
+  $ipProperties=$interface.GetIPProperties()
+
+  $ipv4Properties=$ipProperties.GetIPv4Properties()
+
+  $ipProperties.UnicastAddresses | Foreach {
+    if(!($_.Address.IPAddressToString)){
+      continue
+    }
+    if($ipProperties.GatewayAddresses){
+      $gateway=$ipProperties.GatewayAddresses.Address.IPAddressToString
+    }else{
+      $gateway=$null
+    }
+
+    $subnetInfo=Get-IPv4Subnet -IPAddress $_.Address.IPAddressToString `
+      -PrefixLength $_.PrefixLength
+    New-Object -TypeName PSObject -Property @{
+      InterfaceName=$interface.Name;
+      InterfaceType=$interface.NetworkInterfaceType;
+      NetworkID=$subnetInfo.NetworkID;
+      IPAddress=$_.Address.IPAddressToString;
+      SubnetMask=$subnetInfo.SubnetMask;
+      CidrID=$subnetInfo.CidrID;
+      DnsAddresses=$ipProperties.DnsAddresses.IPAddressToString;
+      GatewayAddresses=$gateway;
+      DhcpEnabled=$ipv4Properties.IsDhcpEnabled;
+    }
+  }
+}
+```
