@@ -1,6 +1,7 @@
 ---
 layout: post
 title: PowerShell - Automate SCCM PreReq Downloads
+description: Script to download ADK and SCCM prerequisites
 ---
 
 <p>

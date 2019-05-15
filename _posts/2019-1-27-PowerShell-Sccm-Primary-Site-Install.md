@@ -1,6 +1,7 @@
 ---
 layout: post
 title: PowerShell - Automate SCCM Primary Site Install
+description: Install SCCM Primary Site server with PowerShell
 ---
 
 <p>

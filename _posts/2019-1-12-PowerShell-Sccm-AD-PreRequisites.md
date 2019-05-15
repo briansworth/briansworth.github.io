@@ -1,6 +1,7 @@
 ---
 layout: post
 title: PowerShell - Automate SCCM AD PreReqs
+description: Script to automate Active Directory tasks for an SCCM deployment
 ---
 
 This is a continuation of automating Sccm prerequisites [part 1](

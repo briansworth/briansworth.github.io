@@ -1,6 +1,7 @@
 ---
 layout: post
 title: PowerShell - Automate SQL Install - SCCM PreReqs
+description: Script / DSC configuration to deploy SQL for an SCCM deployment
 ---
 
 This is a continuation of automating Sccm prerequisites [part 1](

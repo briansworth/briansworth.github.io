@@ -1,6 +1,7 @@
 ---
 layout: post
 title: PowerShell - Automate SCCM PreReq Install
+description: Script to install SCCM prerequisites
 ---
 
 This is a part 2 to my original 

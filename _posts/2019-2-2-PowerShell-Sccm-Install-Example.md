@@ -1,6 +1,7 @@
 ---
 layout: post
 title: PowerShell - Sccm Install Example
+description: Guide to installing SCCM with only PowerShell
 ---
 
 After creating 5 posts about automating Sccm primary site installs, 

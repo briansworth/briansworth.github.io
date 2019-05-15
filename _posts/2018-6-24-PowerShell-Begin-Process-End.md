@@ -1,6 +1,7 @@
 ---
 layout: post
 title: PowerShell - Begin Process End
+description: How to use Begin, Process, and End in scripts / functions
 ---
 <p>
 If you look for or have used PowerShell scripts from the internet, you have likely encountered functions with the Begin, Process, and End blocks.
