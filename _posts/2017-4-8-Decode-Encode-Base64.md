@@ -1,6 +1,7 @@
 ---
 layout: post
 title: String Encoding and Decoding - Base64
+description: How to Base64 encode and decode strings
 ---
 
 Here's a quick one.  In this post we'll create 2 basic functions for encoding and decoding strings.

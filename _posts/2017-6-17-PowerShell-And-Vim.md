@@ -1,6 +1,7 @@
 ---
 layout: post
 title: PowerShell and Vim
+description: How to setup and use Vim in PowerShell
 ---
 <p>
   If you are familiar with Linux or come from a Unix background,

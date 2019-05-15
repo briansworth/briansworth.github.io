@@ -1,6 +1,7 @@
 ---
 layout: post
 title: PowerShell - ActiveDirectory and Exchange Servers
+description: Get Exchange server information directly from Active Directory
 ---
 
 <p>

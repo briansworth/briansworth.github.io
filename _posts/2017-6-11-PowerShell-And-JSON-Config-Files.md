@@ -1,6 +1,7 @@
 ---
 layout: post
 title: PowerShell and JSON Configuration Files
+description: How to leverage JSON configuration files with PowerShell
 ---
 <p>
   If you run a lot of code in any environment, or have multiple environments that you manage,

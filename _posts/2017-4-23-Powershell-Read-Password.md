@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Using Passwords in PowerShell
+description: Ways to work with secure strings and credentials in PowerShell
 ---
 
 I have found that working with passwords and credentials can be intimidating.

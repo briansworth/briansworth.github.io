@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Check if you are running as Administrator
+description: How to check if PowerShell is running with elevated permissions
 ---
 
 I don't know about you, but sometimes I try to run commands that need administrative rights without checking if I have those permissions in my current session.

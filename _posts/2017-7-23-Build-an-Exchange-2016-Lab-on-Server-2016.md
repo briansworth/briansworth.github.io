@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Building an Exchange 2016 Lab on Server 2016
+description: Full setup guide to deploy Exchange 2016 with PowerShell
 ---
 
 <p>

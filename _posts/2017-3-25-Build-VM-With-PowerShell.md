@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Build a VM Using Only PowerShell
+description: Build a VM in Hyper-V with PowerShell
 ---
 
 In this post I will be building a Hyper-V Virtual Machine from scratch, using only PowerShell

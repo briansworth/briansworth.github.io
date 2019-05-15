@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Rename Computer with WMI
+description: Use Wmi to rename a computer
 ---
 
 I recently found myself having to do some testing on a few Windows Server 2008r2 machines.  

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Connect PowerShell to Exchange Online
+description: Simple function to make connecting to Exchange Online easy
 ---
 
 <p>
