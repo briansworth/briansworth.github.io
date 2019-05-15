@@ -6,6 +6,7 @@ jQuery(function() {
     this.field('content', { boost: 10 });
     this.field('author');
     this.field('categories');
+    this.field('description');
   });
 
   // Get the generated search_data.json file so lunr.js can search it locally.
@@ -34,7 +35,6 @@ jQuery(function() {
     // Wait for data to load
     window.data.then(function(loaded_data) {
 
-      // Are there any results?
       if (results.length) {
         $search_results.empty(); // Clear any old results
 
@@ -43,14 +43,20 @@ jQuery(function() {
           var item = loaded_data[result.ref];
 
           // Build a snippet of HTML for this result
-          var appendString = '<li><a href="' + item.url + '">' + item.title + '</a></li>';
+          var appendString = '<a href="' + item.url + '">' + item.title + '</a><br>';
+          if(item.description) {
+            var descriptionString = item.description + '<br><br>';
+          } else {
+            var descriptionString = '<br>';
+          }
 
           // Add the snippet to the collection of results.
           $search_results.append(appendString);
+          $search_results.append(descriptionString);
         });
       } else {
         // If there are no results, let the user know.
-        $search_results.html('<li>Nothing found...</li>');
+        $search_results.html('Nothing found...');
       }
     });
   }

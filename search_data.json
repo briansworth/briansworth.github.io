@@ -9,6 +9,7 @@ layout: null
       "content"  : "{{post.content | strip_html | strip_newlines | remove:  " " | escape | remove: "\"}}",
       "url": "{{ post.url | xml_escape }}",
       "author": "{{ post.author | xml_escape }}",
+      "author": "{{ post.description | xml_escape }}",
       "categories": "{% for category in post.categories %}{{ category }}{% unless forloop.last %}, {% endunless %}{% endfor %}"
     }
     {% unless forloop.last %},{% endunless %}
