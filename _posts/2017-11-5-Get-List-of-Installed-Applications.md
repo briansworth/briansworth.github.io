@@ -1,6 +1,7 @@
 ---
 layout: post
 title: PowerShell - Get List of Installed Applications
+description: Get all installed apps on your local or remote computers with 1 PowerShell function
 ---
 
 <p>
