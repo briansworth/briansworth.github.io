@@ -46,9 +46,8 @@ LastHostIP   : 10.148.72.254
 Broadcast    : 10.148.72.255
 ```
 
-<p>
-  The source code will be at the end of the post.
-</p>
+The source code will be at the end of the post. 
+Additionally, I have create a PowerShell module for this on [GitHub](https://github.com/briansworth/GetIPv4Address/blob/master/GetIPv4Subnet.psm1).
 
 ### The Journey
 ----
@@ -390,7 +389,7 @@ Function Get-IPv4Subnet {
 }
 ```
 
-Additionally, I have put this source code, along with help, on [GitHub](https://github.com/briansworth/GetIPv4Address/blob/master/GetIPv4Subnet.psm1).
+Again, I have put this source code, along with help, on [GitHub](https://github.com/briansworth/GetIPv4Address/blob/master/GetIPv4Subnet.psm1).
 
 #### Example Script
 ----
