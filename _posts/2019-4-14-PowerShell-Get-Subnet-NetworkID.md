@@ -1,6 +1,7 @@
 ---
 layout: post
 title: PowerShell - Get Network ID and Subnet Info
+description: How to guide to get network / subnet information from an IP address and a subnet mask. Also includes a function that can do this, and more.
 ---
 
 <p>
@@ -247,7 +248,7 @@ Function ConvertIntToIPv4 {
   }
 }
 
-Function AddToIPv4Address {
+Function Add-IntToIPv4Address {
   Param(
     [String]$IPv4Address,
 
@@ -350,11 +351,11 @@ Function Get-IPv4Subnet {
       $networkID=ConvertIntToIPv4 -Integer ($netMaskInt -band $ipInt)
 
       $maxHosts=[math]::Pow(2,(32-$PrefixLength)) - 2
-      $broadcast=AddToIPv4Address -IPv4Address $networkID `
+      $broadcast=Add-IntToIPv4Address -IPv4Address $networkID `
         -Integer ($maxHosts+1)
 
-      $firstIP=AddToIPv4Address -IPv4Address $networkID -Integer 1
-      $lastIP=AddToIPv4Address -IPv4Address $broadcast -Integer -1
+      $firstIP=Add-IntToIPv4Address -IPv4Address $networkID -Integer 1
+      $lastIP=Add-IntToIPv4Address -IPv4Address $broadcast -Integer -1
 
       if($PrefixLength -eq 32){
         $broadcast=$networkID
@@ -388,6 +389,8 @@ Function Get-IPv4Subnet {
   End{}
 }
 ```
+
+Additionally, I have put this source code, along with help, on [GitHub](https://github.com/briansworth/GetIPv4Address/blob/master/GetIPv4Subnet.psm1).
 
 #### Example Script
 ----
