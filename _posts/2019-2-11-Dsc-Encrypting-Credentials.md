@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Dsc - Encrypting Credentials
+description: Securing your Dsc mof files by encrypting passwords
 ---
 
 <p>

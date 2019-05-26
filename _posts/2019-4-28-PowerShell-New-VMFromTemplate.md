@@ -1,6 +1,7 @@
 ---
 layout: post
 title: PowerShell - New-VMFromTemplate
+description: A simple method and function to deploy a Hyper-V VM from an existing template
 ---
 
 <p>
@@ -25,7 +26,7 @@ dc   Off   0           0                 00:00:00 Operating normally 8.3
 ----
 
 I made a post on how to create a VM template previously
-([Build VM Template](http://http://codeandkeep.com/Build-VM-From-Template/)),
+([Build VM Template]({{ site.baseurl }}/Build-VM-From-Template/)),
 but I didn't provide a function that could streamline the process.
 
 <p>

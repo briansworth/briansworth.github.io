@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Dsc - Install Active Directory Forest
+description: Use Dsc to deploy an AD forest in minutes
 ---
 
 <p>
@@ -40,7 +41,7 @@ title: Dsc - Install Active Directory Forest
 
 Installing a new AD Forest does require specifying credentials. 
 You should always ensure your credentials are encrypted for Dsc configurations. 
-See my previous [post](http://codeandkeep.com/Dsc-Encrypting-Credentials/) 
+See my previous [post]({{ site.baseurl }}/Dsc-Encrypting-Credentials/) 
 for instructions on how to do so. 
 I will be using a self-signed certificate for encryption in this example.
 
