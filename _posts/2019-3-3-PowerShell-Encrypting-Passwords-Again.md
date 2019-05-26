@@ -1,10 +1,11 @@
 ---
 layout: post
 title: PowerShell - Encrypting Passwords...Again
+description: More in depth look at encryption in PowerShell
 ---
 
 I have covered working with passwords in PowerShell in a previous 
-[post](http://codeandkeep.com/Powershell-Read-Password/), 
+[post]({{ site.baseurl }}/Powershell-Read-Password/), 
 but wanted to go over some more advanced options.
 
 The 2 methods I will cover are:
@@ -238,7 +239,7 @@ Remove-Variable tempCred
 ### Encrypt Passwords with Certificates
 ----
 
-I made a [post recently](http://codeandkeep.com/Dsc-Encrypting-Credentials/) 
+I made a [post recently]({{ site.baseurl }}/Dsc-Encrypting-Credentials/) 
 that discussed how to encrypt credentials with Desired State Configuration 
 (DSC).  
 It just so happens that if you create a certificate using either 

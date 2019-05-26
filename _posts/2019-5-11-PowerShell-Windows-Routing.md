@@ -1,6 +1,7 @@
 ---
 layout: post
 title: PowerShell - Networking with Windows Routing
+description: Deploy a RRAS server to setup communication across multiple networks on your host(s).
 ---
 
 <p>
@@ -20,7 +21,7 @@ title: PowerShell - Networking with Windows Routing
 </p>
 
 A couple posts back
-([here](http://codeandkeep.com/PowerShell-Get-Subnet-NetworkID/)), I wrote 
+([here]({{ site.baseurl }}/PowerShell-Get-Subnet-NetworkID/)), I wrote 
 a function (Get-IPv4Subnet) that can calculate network subnets based 
 on certain parameters you provide. 
 
