@@ -28,7 +28,7 @@ tr:nth-child(even) {
 <table>
   <tr>
     <td>
-      <a href="http://codeandkeep.com/PowerShell-SCCM-Offline-PreRequisites/">Post 1</a>
+      <a href="{{ site.baseurl }}/PowerShell-SCCM-Offline-PreRequisites/">Post 1</a>
     </td>
     <td>Download Prereqs</td>
   </tr>
