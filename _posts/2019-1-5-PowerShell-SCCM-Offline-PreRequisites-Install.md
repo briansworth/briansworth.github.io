@@ -5,7 +5,7 @@ description: Script to install SCCM prerequisites
 ---
 
 This is a part 2 to my original 
-[post](http://codeandkeep.com/PowerShell-SCCM-Offline-PreRequisites/)
+[post]({{ site.baseurl }}/PowerShell-SCCM-Offline-PreRequisites/)
 about setting up SCCM on a server disconnected from the internet. 
 
 <p>
@@ -384,7 +384,7 @@ is the Active Directory portion.
 You will still need to create the System Management container in AD, 
 and setup the permissions on that container. 
 I have made a post / script to do exactly this 
-[here](http://codeandkeep.com/PowerShell-Sccm-AD-PreRequisites/). 
+[here]({{ site.baseurl }}/PowerShell-Sccm-AD-PreRequisites/). 
 Lastly, you will need to extend the schema. 
 <p>
   When you get to running the SCCM installer, 

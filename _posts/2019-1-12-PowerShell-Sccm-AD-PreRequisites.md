@@ -5,9 +5,9 @@ description: Script to automate Active Directory tasks for an SCCM deployment
 ---
 
 This is a continuation of automating Sccm prerequisites [part 1](
-http://codeandkeep.com/PowerShell-SCCM-Offline-PreRequisites/) and 
+{{ site.baseurl }}/PowerShell-SCCM-Offline-PreRequisites/) and 
 [part 2](
-http://codeandkeep.com/PowerShell-SCCM-Offline-PreRequisites-Install/). 
+{{ site.baseurl }}/PowerShell-SCCM-Offline-PreRequisites-Install/). 
 <p>
   This post will be about setting up the Active Directory prerequisites. 
   Specifically creating the System Management container and adding the 
