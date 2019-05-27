@@ -9,10 +9,10 @@ The last step in the journey to automating a Sccm Primary Site server install.
 </p>
 
 This is a continuation of automating Sccm prerequisites:
-- [Part 1](http://codeandkeep.com/PowerShell-SCCM-Offline-PreRequisites/)
-- [Part 2]( http://codeandkeep.com/PowerShell-SCCM-Offline-PreRequisites-Install/)
-- [Part 3](http://codeandkeep.com/PowerShell-Sccm-AD-PreRequisites/)
-- [Part 4](http://codeandkeep.com/PowerShell-Sccm-PreRequisites-SQL/)
+- [Part 1]({{ site.baseurl }}/PowerShell-SCCM-Offline-PreRequisites/)
+- [Part 2]({{ site.baseurl }}/PowerShell-SCCM-Offline-PreRequisites-Install/)
+- [Part 3]({{ site.baseurl }}/PowerShell-Sccm-AD-PreRequisites/)
+- [Part 4]({{ site.baseurl }}/PowerShell-Sccm-PreRequisites-SQL/)
 
 <p>
   In this post, the final step.  

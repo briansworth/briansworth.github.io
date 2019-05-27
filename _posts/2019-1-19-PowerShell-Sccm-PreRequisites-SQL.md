@@ -5,11 +5,11 @@ description: Script / DSC configuration to deploy SQL for an SCCM deployment
 ---
 
 This is a continuation of automating Sccm prerequisites [part 1](
-http://codeandkeep.com/PowerShell-SCCM-Offline-PreRequisites/), 
+{{ site.baseurl }}/PowerShell-SCCM-Offline-PreRequisites/), 
 [part 2](
-http://codeandkeep.com/PowerShell-SCCM-Offline-PreRequisites-Install/) 
+{{ site.baseurl }}/PowerShell-SCCM-Offline-PreRequisites-Install/) 
 and [part 3](
-http://codeandkeep.com/PowerShell-Sccm-AD-PreRequisites/
+{{ site.baseurl }}/PowerShell-Sccm-AD-PreRequisites/
 ).
 
 <p>
