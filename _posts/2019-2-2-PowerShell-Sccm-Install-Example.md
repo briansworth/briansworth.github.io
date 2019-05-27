@@ -35,28 +35,28 @@ tr:nth-child(even) {
 
   <tr padding>
     <td>
-      <a href="http://codeandkeep.com/PowerShell-SCCM-Offline-PreRequisites-Install/">Post 2</a>
+      <a href="{{ site.baseurl }}/PowerShell-SCCM-Offline-PreRequisites-Install/">Post 2</a>
     </td>
     <td>Install Prereqs</td>
   </tr>
 
   <tr>
     <td>
-      <a href="http://codeandkeep.com/PowerShell-Sccm-AD-PreRequisites/">Post 3</a>
+      <a href="{{ site.baseurl }}/PowerShell-Sccm-AD-PreRequisites/">Post 3</a>
     </td>
     <td>AD Prereqs</td>
   </tr>
 
   <tr>
     <td>
-      <a href="http://codeandkeep.com/PowerShell-Sccm-PreRequisites-SQL/">Post 4</a>
+      <a href="{{ site.baseurl }}/PowerShell-Sccm-PreRequisites-SQL/">Post 4</a>
     </td>
     <td>Sql Install</td>
   </tr>
 
   <tr>
     <td>
-      <a href="http://codeandkeep.com/PowerShell-Sccm-Primary-Site-Install/">Post 5</a>
+      <a href="{{ site.baseurl }}/PowerShell-Sccm-Primary-Site-Install/">Post 5</a>
     </td>
     <td>Sccm Primary Site Install</td>
   </tr>
@@ -114,7 +114,7 @@ Both can be found [here](https://docs.microsoft.com/en-us/windows-hardware/get-s
   It is mounted on Drive E:.
 </p>
 
-Lastly, I have copied my script from [Post 1](http://codeandkeep.com/PowerShell-ActiveDirectory-Exchange-Part1/) and saved it as SccmPreReqDl.ps1 on my host machine.
+Lastly, I have copied my script from [Post 1]({{ site.baseurl }}/PowerShell-ActiveDirectory-Exchange-Part1/) and saved it as SccmPreReqDl.ps1 on my host machine.
 
 ```powershell
 .\SccmPreReqDl.ps1 -sccmInstallSource E:\ -prereqTargetPath C:\temp\Sccm -Verbose
@@ -185,7 +185,7 @@ Expand-Archive -Path C:\temp\Sccm\SccmPreReq.zip -Destination C:\temp\Sccm
 
 I have mounted the Windows Server 2016 ISO to the D:\ drive on cm1, 
 and saved the script from 
-[Post 2](http://codeandkeep.com/PowerShell-SCCM-Offline-PreRequisites-Install/) 
+[Post 2]({{ site.baseurl }}/PowerShell-SCCM-Offline-PreRequisites-Install/) 
 to the cm1 server as SccmPreReqInstall.ps1.
 
 ```powershell
@@ -202,7 +202,7 @@ to the cm1 server as SccmPreReqInstall.ps1.
 ----
 
 I have saved the script from 
-[Post 3](http://codeandkeep.com/PowerShell-Sccm-AD-PreRequisites/) 
+[Post 3]({{ site.baseurl }}/PowerShell-Sccm-AD-PreRequisites/) 
 on the cm1 server as SccmADPreReq.ps1. 
 I have mounted the Sccm Installation ISO to the D:\ drive of the cm1 server.
 <p>
@@ -263,11 +263,11 @@ Copy-Item -Path C:\temp\SqlServerDsc `
 ----
 
 Copy the 'Configuration' from 
-[Part 4](http://codeandkeep.com/PowerShell-Sccm-PreRequisites-SQL/) 
+[Part 4]({{ site.baseurl }}/PowerShell-Sccm-PreRequisites-SQL/) 
 Directly into an Admin PowerShell window on your Sql server.
 
 Create your DSC configuration data.
-Reference the [Sql post](http://codeandkeep.com/PowerShell-Sccm-PreRequisites-SQL/) 
+Reference the [Sql post]({{ site.baseurl }}/PowerShell-Sccm-PreRequisites-SQL/) 
  for more information on this if required:
 
 
@@ -342,7 +342,7 @@ Add-LocalGroupMember -Name Administrators -Member 'codeAndKeep\cm1$'
 </p>
 
 For more information on this part, check out 
-[Post 5 ](http://codeandkeep.com/PowerShell-Sccm-Primary-Site-Install/).
+[Post 5 ]({{ site.baseurl }}/PowerShell-Sccm-Primary-Site-Install/).
 
 ```
 [Identification]
