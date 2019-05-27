@@ -8,7 +8,7 @@ Creating VMs from a base image can make your life a lot easier.  Not having to s
 A lot of work can go into creating a base image, but it doesn't have to.  I will briefly touch on how to create a base Windows image and then get into the automation of creating a Hyper-V VM from that template.
 <br>
 
-In my last [post ](http://codeandkeep.com/Build-VM-With-PowerShell/), I showed a simple way of creating a VM using only PowerShell.
+In my last [post ]({{ site.baseurl }}/Build-VM-With-PowerShell/), I showed a simple way of creating a VM using only PowerShell.
 I would recommend looking at that post first and testing it out to ensure you know the basics of PowerShell and Hyper-V.
 <br>
 
