@@ -222,7 +222,7 @@ Try{
 ----
 
 I will be writing a 
-[Part 2](http://codeandkeep.com/PowerShell-SCCM-Offline-PreRequisites/)
+[Part 2]({{ site.baseurl }}/PowerShell-SCCM-Offline-PreRequisites/)
 to this post that can handle the install.  
 See below if you want to do it yourself.
 <p>
