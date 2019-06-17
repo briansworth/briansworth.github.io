@@ -123,13 +123,26 @@ Function Get-InstalledApplication {
     [String]$Publisher
   )
   Begin{
-    $regPath = @(
-      'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall',
-      'SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall'
-    )
+    Function IsCpuX86 ([Microsoft.Win32.RegistryKey]$hklmHive){
+      $regPath='SYSTEM\CurrentControlSet\Control\Session Manager\Environment'
+      $key=$hklmHive.OpenSubKey($regPath)
+
+      $cpuArch=$key.GetValue('PROCESSOR_ARCHITECTURE')
+
+      if($cpuArch -eq 'x86'){
+        return $true
+      }else{
+        return $false
+      }
+    }
   }
   Process{
     foreach($computer in $computerName){
+      $regPath = @(
+        'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall',
+        'SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall'
+      )
+
       Try{
         $hive=[Microsoft.Win32.RegistryKey]::OpenRemoteBaseKey(
           [Microsoft.Win32.RegistryHive]::LocalMachine, 
@@ -138,6 +151,12 @@ Function Get-InstalledApplication {
         if(!$hive){
           continue
         }
+        
+        # if CPU is x86 do not query for Wow6432Node
+        if($IsCpuX86){
+          $regPath=$regPath[0]
+        }
+
         foreach($path in $regPath){
           $key=$hive.OpenSubKey($path)
           if(!$key){
@@ -165,8 +184,22 @@ Function Get-InstalledApplication {
             }
             if($appName){
               if($PSBoundParameters.ContainsKey('Properties')){
-                foreach ($prop in $Properties){
-                  $outHash.$prop=($hive.OpenSubKey("$path\$subKey")).GetValue($prop)
+                if($Properties -eq '*'){
+                  foreach($keyName in ($hive.OpenSubKey("$path\$subKey")).GetValueNames()){
+                    Try{
+                      $value=$subKeyObj.GetValue($keyName)
+                      if($value){
+                        $outHash.$keyName=$value
+                      }
+                    }Catch{
+                      Write-Warning "Subkey: [$subkey]: $($_.Exception.Message)"
+                      continue
+                    }
+                  }
+                }else{
+                  foreach ($prop in $Properties){
+                    $outHash.$prop=($hive.OpenSubKey("$path\$subKey")).GetValue($prop)
+                  }
                 }
               }
               $outHash.Name=$appName
@@ -193,6 +226,7 @@ Function Get-InstalledApplication {
 ```
 
 This is a fair bit of code, but using it is pretty straight forward.
+You can also grab this code (help included) from [GitHub](https://github.com/briansworth/Get-InstalledApplication/blob/master/Get-InstalledApplication.ps1)
 
 #### Example 1
 ```powershell
@@ -227,6 +261,7 @@ in the result.
 #### Example 5
 ```powershell
 Get-InstalledApplication -ComputerName server1,server2,server3 `
-  -IdentifyingNumber {5FCE6D76-F5DC-37AB-B2B8-22AB8CEDB1D4}
+  -IdentifyingNumber {5FCE6D76-F5DC-37AB-B2B8-22AB8CEDB1D4} `
+  -Properties *
 ```
 If you know the guid of an application, you can specify IdentifyingNumber.
