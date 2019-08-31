@@ -409,7 +409,7 @@ Try{
   }
 
   Set-CMSoftwareUpdatePointComponent -SiteCode $site.SiteCode `
-    -AddProduct 'Windows Server 2019'
+    -AddProduct $productsToAddAfterSync
     
 }Catch{
   $supErrorMsg = ""
