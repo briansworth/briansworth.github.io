@@ -12,7 +12,12 @@
 
 code {
   //font-family:'Bitstream Vera Sans Mono','Courier', monospace;
-  font-family: 'Consolas', Monaco, 'Lucida Console', 'Liberation Mono','DejaVu Sans Mono';
+  font-family: 'Liberation Mono', 'Consolas', Monaco, 'Lucida Console', 'DejaVu Sans Mono';
+  background-color: #ececec;
+}
+
+pre code {
+  background-color: transparent;
 }
 
 .highlight .c { color: #586E75 } /* Comment */
