@@ -137,7 +137,7 @@ tmux
 
 Now you can multiplex your terminals til the cows come home.
 
-<s>I will go into detail on configuring Tmux in VIM style in a future post.<s>
+<s>I will go into detail on configuring Tmux in VIM style in a future post.</s>
 
 Post: [Customizing Tmux with VIM keys]({{ site.basurl }}/https://codeandkeep.com/Tmux-and-Vim/)
 
